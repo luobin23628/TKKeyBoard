@@ -1,13 +1,13 @@
 //
-//  TKMasterViewController.h
+//  TKIntegerKeyboard.h
 //  TKKeyBoard
 //
 //  Created by luobin on 14-7-31.
 //  Copyright (c) 2014年 luobin. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TKKeyboard.h"
 
-@interface TKMasterViewController : UITableViewController
+@interface TKIntegerKeyboard : TKKeyboard
 
 @end
