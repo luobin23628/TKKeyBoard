@@ -1,0 +1,492 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A8BB1468198A8D4F00CEE1A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BB1467198A8D4F00CEE1A2 /* Foundation.framework */; };
+		A8BB146A198A8D4F00CEE1A2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BB1469198A8D4F00CEE1A2 /* CoreGraphics.framework */; };
+		A8BB146C198A8D4F00CEE1A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BB146B198A8D4F00CEE1A2 /* UIKit.framework */; };
+		A8BB1472198A8D4F00CEE1A2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A8BB1470198A8D4F00CEE1A2 /* InfoPlist.strings */; };
+		A8BB1474198A8D4F00CEE1A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BB1473198A8D4F00CEE1A2 /* main.m */; };
+		A8BB1478198A8D4F00CEE1A2 /* TKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BB1477198A8D4F00CEE1A2 /* TKAppDelegate.m */; };
+		A8BB147B198A8D4F00CEE1A2 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BB1479198A8D4F00CEE1A2 /* Main_iPhone.storyboard */; };
+		A8BB147E198A8D4F00CEE1A2 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BB147C198A8D4F00CEE1A2 /* Main_iPad.storyboard */; };
+		A8BB1481198A8D4F00CEE1A2 /* TKMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BB1480198A8D4F00CEE1A2 /* TKMasterViewController.m */; };
+		A8BB1484198A8D4F00CEE1A2 /* TKDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BB1483198A8D4F00CEE1A2 /* TKDetailViewController.m */; };
+		A8BB1486198A8D4F00CEE1A2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8BB1485198A8D4F00CEE1A2 /* Images.xcassets */; };
+		A8BB148D198A8D5000CEE1A2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BB148C198A8D5000CEE1A2 /* XCTest.framework */; };
+		A8BB148E198A8D5000CEE1A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BB1467198A8D4F00CEE1A2 /* Foundation.framework */; };
+		A8BB148F198A8D5000CEE1A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BB146B198A8D4F00CEE1A2 /* UIKit.framework */; };
+		A8BB1497198A8D5000CEE1A2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A8BB1495198A8D5000CEE1A2 /* InfoPlist.strings */; };
+		A8BB1499198A8D5000CEE1A2 /* TKKeyBoardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BB1498198A8D5000CEE1A2 /* TKKeyBoardTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A8BB1490198A8D5000CEE1A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A8BB145C198A8D4F00CEE1A2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A8BB1463198A8D4F00CEE1A2;
+			remoteInfo = TKKeyBoard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A8BB1464198A8D4F00CEE1A2 /* TKKeyBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TKKeyBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8BB1467198A8D4F00CEE1A2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A8BB1469198A8D4F00CEE1A2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A8BB146B198A8D4F00CEE1A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A8BB146F198A8D4F00CEE1A2 /* TKKeyBoard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TKKeyBoard-Info.plist"; sourceTree = "<group>"; };
+		A8BB1471198A8D4F00CEE1A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A8BB1473198A8D4F00CEE1A2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A8BB1475198A8D4F00CEE1A2 /* TKKeyBoard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TKKeyBoard-Prefix.pch"; sourceTree = "<group>"; };
+		A8BB1476198A8D4F00CEE1A2 /* TKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKAppDelegate.h; sourceTree = "<group>"; };
+		A8BB1477198A8D4F00CEE1A2 /* TKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKAppDelegate.m; sourceTree = "<group>"; };
+		A8BB147A198A8D4F00CEE1A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		A8BB147D198A8D4F00CEE1A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		A8BB147F198A8D4F00CEE1A2 /* TKMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKMasterViewController.h; sourceTree = "<group>"; };
+		A8BB1480198A8D4F00CEE1A2 /* TKMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKMasterViewController.m; sourceTree = "<group>"; };
+		A8BB1482198A8D4F00CEE1A2 /* TKDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKDetailViewController.h; sourceTree = "<group>"; };
+		A8BB1483198A8D4F00CEE1A2 /* TKDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKDetailViewController.m; sourceTree = "<group>"; };
+		A8BB1485198A8D4F00CEE1A2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A8BB148B198A8D5000CEE1A2 /* TKKeyBoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TKKeyBoardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8BB148C198A8D5000CEE1A2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A8BB1494198A8D5000CEE1A2 /* TKKeyBoardTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TKKeyBoardTests-Info.plist"; sourceTree = "<group>"; };
+		A8BB1496198A8D5000CEE1A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A8BB1498198A8D5000CEE1A2 /* TKKeyBoardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKKeyBoardTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A8BB1461198A8D4F00CEE1A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8BB146A198A8D4F00CEE1A2 /* CoreGraphics.framework in Frameworks */,
+				A8BB146C198A8D4F00CEE1A2 /* UIKit.framework in Frameworks */,
+				A8BB1468198A8D4F00CEE1A2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8BB1488198A8D5000CEE1A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8BB148D198A8D5000CEE1A2 /* XCTest.framework in Frameworks */,
+				A8BB148F198A8D5000CEE1A2 /* UIKit.framework in Frameworks */,
+				A8BB148E198A8D5000CEE1A2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A8BB145B198A8D4F00CEE1A2 = {
+			isa = PBXGroup;
+			children = (
+				A8BB146D198A8D4F00CEE1A2 /* TKKeyBoard */,
+				A8BB1492198A8D5000CEE1A2 /* TKKeyBoardTests */,
+				A8BB1466198A8D4F00CEE1A2 /* Frameworks */,
+				A8BB1465198A8D4F00CEE1A2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A8BB1465198A8D4F00CEE1A2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A8BB1464198A8D4F00CEE1A2 /* TKKeyBoard.app */,
+				A8BB148B198A8D5000CEE1A2 /* TKKeyBoardTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A8BB1466198A8D4F00CEE1A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A8BB1467198A8D4F00CEE1A2 /* Foundation.framework */,
+				A8BB1469198A8D4F00CEE1A2 /* CoreGraphics.framework */,
+				A8BB146B198A8D4F00CEE1A2 /* UIKit.framework */,
+				A8BB148C198A8D5000CEE1A2 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A8BB146D198A8D4F00CEE1A2 /* TKKeyBoard */ = {
+			isa = PBXGroup;
+			children = (
+				A8BB1476198A8D4F00CEE1A2 /* TKAppDelegate.h */,
+				A8BB1477198A8D4F00CEE1A2 /* TKAppDelegate.m */,
+				A8BB1479198A8D4F00CEE1A2 /* Main_iPhone.storyboard */,
+				A8BB147C198A8D4F00CEE1A2 /* Main_iPad.storyboard */,
+				A8BB147F198A8D4F00CEE1A2 /* TKMasterViewController.h */,
+				A8BB1480198A8D4F00CEE1A2 /* TKMasterViewController.m */,
+				A8BB1482198A8D4F00CEE1A2 /* TKDetailViewController.h */,
+				A8BB1483198A8D4F00CEE1A2 /* TKDetailViewController.m */,
+				A8BB1485198A8D4F00CEE1A2 /* Images.xcassets */,
+				A8BB146E198A8D4F00CEE1A2 /* Supporting Files */,
+			);
+			path = TKKeyBoard;
+			sourceTree = "<group>";
+		};
+		A8BB146E198A8D4F00CEE1A2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A8BB146F198A8D4F00CEE1A2 /* TKKeyBoard-Info.plist */,
+				A8BB1470198A8D4F00CEE1A2 /* InfoPlist.strings */,
+				A8BB1473198A8D4F00CEE1A2 /* main.m */,
+				A8BB1475198A8D4F00CEE1A2 /* TKKeyBoard-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A8BB1492198A8D5000CEE1A2 /* TKKeyBoardTests */ = {
+			isa = PBXGroup;
+			children = (
+				A8BB1498198A8D5000CEE1A2 /* TKKeyBoardTests.m */,
+				A8BB1493198A8D5000CEE1A2 /* Supporting Files */,
+			);
+			path = TKKeyBoardTests;
+			sourceTree = "<group>";
+		};
+		A8BB1493198A8D5000CEE1A2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A8BB1494198A8D5000CEE1A2 /* TKKeyBoardTests-Info.plist */,
+				A8BB1495198A8D5000CEE1A2 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A8BB1463198A8D4F00CEE1A2 /* TKKeyBoard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8BB149C198A8D5000CEE1A2 /* Build configuration list for PBXNativeTarget "TKKeyBoard" */;
+			buildPhases = (
+				A8BB1460198A8D4F00CEE1A2 /* Sources */,
+				A8BB1461198A8D4F00CEE1A2 /* Frameworks */,
+				A8BB1462198A8D4F00CEE1A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TKKeyBoard;
+			productName = TKKeyBoard;
+			productReference = A8BB1464198A8D4F00CEE1A2 /* TKKeyBoard.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A8BB148A198A8D5000CEE1A2 /* TKKeyBoardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8BB149F198A8D5000CEE1A2 /* Build configuration list for PBXNativeTarget "TKKeyBoardTests" */;
+			buildPhases = (
+				A8BB1487198A8D5000CEE1A2 /* Sources */,
+				A8BB1488198A8D5000CEE1A2 /* Frameworks */,
+				A8BB1489198A8D5000CEE1A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A8BB1491198A8D5000CEE1A2 /* PBXTargetDependency */,
+			);
+			name = TKKeyBoardTests;
+			productName = TKKeyBoardTests;
+			productReference = A8BB148B198A8D5000CEE1A2 /* TKKeyBoardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A8BB145C198A8D4F00CEE1A2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TK;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = luobin;
+				TargetAttributes = {
+					A8BB148A198A8D5000CEE1A2 = {
+						TestTargetID = A8BB1463198A8D4F00CEE1A2;
+					};
+				};
+			};
+			buildConfigurationList = A8BB145F198A8D4F00CEE1A2 /* Build configuration list for PBXProject "TKKeyBoard" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A8BB145B198A8D4F00CEE1A2;
+			productRefGroup = A8BB1465198A8D4F00CEE1A2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A8BB1463198A8D4F00CEE1A2 /* TKKeyBoard */,
+				A8BB148A198A8D5000CEE1A2 /* TKKeyBoardTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A8BB1462198A8D4F00CEE1A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8BB147E198A8D4F00CEE1A2 /* Main_iPad.storyboard in Resources */,
+				A8BB1486198A8D4F00CEE1A2 /* Images.xcassets in Resources */,
+				A8BB147B198A8D4F00CEE1A2 /* Main_iPhone.storyboard in Resources */,
+				A8BB1472198A8D4F00CEE1A2 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8BB1489198A8D5000CEE1A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8BB1497198A8D5000CEE1A2 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A8BB1460198A8D4F00CEE1A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8BB1484198A8D4F00CEE1A2 /* TKDetailViewController.m in Sources */,
+				A8BB1474198A8D4F00CEE1A2 /* main.m in Sources */,
+				A8BB1481198A8D4F00CEE1A2 /* TKMasterViewController.m in Sources */,
+				A8BB1478198A8D4F00CEE1A2 /* TKAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8BB1487198A8D5000CEE1A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8BB1499198A8D5000CEE1A2 /* TKKeyBoardTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A8BB1491198A8D5000CEE1A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A8BB1463198A8D4F00CEE1A2 /* TKKeyBoard */;
+			targetProxy = A8BB1490198A8D5000CEE1A2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A8BB1470198A8D4F00CEE1A2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A8BB1471198A8D4F00CEE1A2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A8BB1479198A8D4F00CEE1A2 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A8BB147A198A8D4F00CEE1A2 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		A8BB147C198A8D4F00CEE1A2 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A8BB147D198A8D4F00CEE1A2 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		A8BB1495198A8D5000CEE1A2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A8BB1496198A8D5000CEE1A2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A8BB149A198A8D5000CEE1A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A8BB149B198A8D5000CEE1A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A8BB149D198A8D5000CEE1A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TKKeyBoard/TKKeyBoard-Prefix.pch";
+				INFOPLIST_FILE = "TKKeyBoard/TKKeyBoard-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A8BB149E198A8D5000CEE1A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TKKeyBoard/TKKeyBoard-Prefix.pch";
+				INFOPLIST_FILE = "TKKeyBoard/TKKeyBoard-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A8BB14A0198A8D5000CEE1A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TKKeyBoard.app/TKKeyBoard";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TKKeyBoard/TKKeyBoard-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TKKeyBoardTests/TKKeyBoardTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		A8BB14A1198A8D5000CEE1A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TKKeyBoard.app/TKKeyBoard";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TKKeyBoard/TKKeyBoard-Prefix.pch";
+				INFOPLIST_FILE = "TKKeyBoardTests/TKKeyBoardTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A8BB145F198A8D4F00CEE1A2 /* Build configuration list for PBXProject "TKKeyBoard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8BB149A198A8D5000CEE1A2 /* Debug */,
+				A8BB149B198A8D5000CEE1A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A8BB149C198A8D5000CEE1A2 /* Build configuration list for PBXNativeTarget "TKKeyBoard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8BB149D198A8D5000CEE1A2 /* Debug */,
+				A8BB149E198A8D5000CEE1A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A8BB149F198A8D5000CEE1A2 /* Build configuration list for PBXNativeTarget "TKKeyBoardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8BB14A0198A8D5000CEE1A2 /* Debug */,
+				A8BB14A1198A8D5000CEE1A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A8BB145C198A8D4F00CEE1A2 /* Project object */;
+}
