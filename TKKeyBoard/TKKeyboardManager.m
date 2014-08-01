@@ -8,6 +8,7 @@
 
 #import "TKKeyboardManager.h"
 #import "TKKeyboard.h"
+#import "TKGridLayout.h"
 
 @interface TKKeyboardManager ()
 
@@ -23,7 +24,8 @@
         @synchronized(self) {
             if (!shareInstance) {
                 shareInstance = [[TKKeyboardManager alloc] init];
-                [self initDefaultKeyboard];
+                [self initIntegerKeyboard];
+                [self initUIntegerKeyboard];
             }
         }
     }
@@ -55,33 +57,65 @@
 
 #pragma mark - Private
 
-+ (void)initDefaultKeyboard {
++ (void)initIntegerKeyboard {
+    [self doInitIntegerKeyboard:NO];
+}
+
++ (void)initUIntegerKeyboard {
+    [self doInitIntegerKeyboard:YES];
+}
+
++ (void)doInitIntegerKeyboard:(BOOL)isUnsigned {
     TKKeyboardConfiguration *configiration = [[TKKeyboardConfiguration alloc] init];
-    configiration.keyboardType = TKKeyboardTypeHexPad;
+    if (isUnsigned) {
+        configiration.keyboardType = TKKeyboardTypeUIntegerPad;
+    } else {
+        configiration.keyboardType = TKKeyboardTypeIntegerPad;
+    }
     configiration.keyboardSize = CGSizeMake(320, 216);
+    
+    TKGridLayout *layout = [[TKGridLayout alloc] init];
+    layout.rowCount = 4;
+    layout.columnCount = 3;
+    configiration.layout = layout;
+    [layout release];
     
     NSMutableArray *keyItems = [NSMutableArray array];
     for (int i = 0; i < 9; i++) {
-        TKKeyItem *keyItem = [[TKKeyItem alloc] initWithTitle:[NSString stringWithFormat:@"%d", i] action:^(id<UITextInput> textInput) {
-            [textInput insertText:[NSString stringWithFormat:@"%d", i + 1]];
-        }];
+        TKKeyItem *keyItem = [[TKKeyItem alloc] initWithInsertText:[NSString stringWithFormat:@"%d", i]];
+        keyItem.highlightBackgroundColor = [UIColor colorWithWhite:179/255.0 alpha:1];
         [keyItems addObject:keyItem];
         [keyItem release];
     }
     
-    TKKeyItem *keyItem = [[TKKeyItem alloc] initWithType:TKKeyItemTypeBackspace action:nil];
+    TKKeyItem *keyItem;
+    if (isUnsigned) {
+        TKKeyItem *keyItem = [[TKKeyItem alloc] initWithType:TKKeyItemTypeBackspace action:nil];
+        keyItem.backgroundColor = [UIColor colorWithWhite:179/255.0 alpha:1];
+        keyItem.highlightBackgroundColor = [UIColor colorWithWhite:251/255.0 alpha:1];
+        keyItem.enable = NO;
+        [keyItems addObject:keyItem];
+        [keyItem release];
+
+    } else {
+        keyItem = [[TKKeyItem alloc] initWithType:TKKeyItemTypePositiveOrNegative action:^(id<TKTextInput> textInput) {
+            [textInput positiveOrNegative];
+        }];
+        keyItem.highlightBackgroundColor = [UIColor colorWithWhite:179/255.0 alpha:1];
+        [keyItems addObject:keyItem];
+        [keyItem release];
+    }
+
+    keyItem = [[TKKeyItem alloc] initWithInsertText:@"0"];
+    keyItem.highlightBackgroundColor = [UIColor colorWithWhite:179/255.0 alpha:1];
     [keyItems addObject:keyItem];
     [keyItem release];
     
-     keyItem = [[TKKeyItem alloc] initWithTitle:@"0" action:^(id<UITextInput> textInput) {
-        [textInput insertText:@"0"];
-    }];
-    [keyItems addObject:keyItem];
-    [keyItem release];
-    
-    keyItem = [[TKKeyItem alloc] initWithType:TKKeyItemTypeDelete action:^(id<UITextInput> textInput) {
+    keyItem = [[TKKeyItem alloc] initWithType:TKKeyItemTypeDelete action:^(id<TKTextInput> textInput) {
         [textInput deleteBackward];
     }];
+    keyItem.backgroundColor = [UIColor colorWithWhite:179/255.0 alpha:1];
+    keyItem.highlightBackgroundColor = [UIColor colorWithWhite:251/255.0 alpha:1];
     [keyItems addObject:keyItem];
     [keyItem release];
     

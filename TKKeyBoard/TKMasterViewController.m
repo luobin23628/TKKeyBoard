@@ -9,19 +9,19 @@
 #import "TKMasterViewController.h"
 #import "TKKeyboard.h"
 #import "TKKeyboardManager.h"
+#import "TKTextFieldViewController.h"
+#import "TKTextViewController.h"
 
 @interface TKMasterViewController () {
     
 }
 
-@property (nonatomic, retain) UITextField *textField;
 
 @end
 
 @implementation TKMasterViewController
 
 - (void)dealloc {
-    self.textField = nil;
     [super dealloc];
 }
 
@@ -39,16 +39,13 @@
     [TKKeyboardManager shareInstance];
     [[TKKeyboard alloc] init];
     [super viewDidLoad];
-    self.textField = [[[UITextField alloc] initWithFrame:CGRectMake(20, 0, 280, 44)] autorelease];
-    self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    self.textField.keyboardType = TKKeyboardTypeHexPad;
 }
 
 #pragma mark - Table View
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -57,15 +54,27 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
-        [cell addSubview:self.textField];
     }
-
+    if (indexPath.row == 0) {
+        cell.textLabel.text = @"UITextField";
+    } else if (indexPath.row == 1) {
+        cell.textLabel.text = @"UITextView";
+    }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 0) {
+        TKTextFieldViewController *textFieldViewController = [[TKTextFieldViewController alloc] init];
+        [self.navigationController pushViewController:textFieldViewController animated:YES];
+        [textFieldViewController release];
+    } else if (indexPath.row == 1) {
+        TKTextViewController *textViewController = [[TKTextViewController alloc] init];
+        [self.navigationController pushViewController:textViewController animated:YES];
+        [textViewController release];
+    }
 }
 
 @end

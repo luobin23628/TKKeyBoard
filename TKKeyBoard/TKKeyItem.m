@@ -7,31 +7,46 @@
 //
 
 #import "TKKeyItem.h"
+#import "TKKeyboard.h"
 
 @interface TKKeyItem()
 
 @property (nonatomic, readwrite, retain) NSString *title;
+@property (nonatomic, readwrite, retain) NSAttributedString *attributedTitle;
 @property (nonatomic, readwrite, retain) UIImage *image;
 @property (nonatomic, readwrite, retain) UIView *customView;
-@property (nonatomic, readwrite, copy) void(^action)(id<UITextInput>);
+@property (nonatomic, readwrite, copy) void(^action)(id<TKTextInput>);
 
 @end
 
 @implementation TKKeyItem
 
-- (id)initWithType:(TKKeyItemType)type action:(void(^)(id<UITextInput>))action {
+- (id)init {
     self = [super init];
+    if (self) {
+        self.enable = YES;
+    }
+    return self;
+}
+
+- (id)initWithType:(TKKeyItemType)type action:(void(^)(id<TKTextInput>))action {
+    self = [self init];
     if (self) {
         if (type == TKKeyItemTypeDelete) {
             self.image = [UIImage imageNamed:@"delete.png"];
+        } else if (type == TKKeyItemTypeBackspace) {
+            self.image = nil;
+            self.title = nil;
+        } else if (type == TKKeyItemTypePositiveOrNegative) {
+            self.title = @"-/+";
         }
         self.action = action;
     }
     return self;
 }
 
-- (id)initWithCustomView:(UIView *)customView action:(void(^)(id<UITextInput>))action {
-    self = [super init];
+- (id)initWithCustomView:(UIView *)customView action:(void(^)(id<TKTextInput>))action {
+    self = [self init];
     if (self) {
         self.action = action;
         self.customView = customView;
@@ -39,8 +54,14 @@
     return self;
 }
 
-- (id)initWithTitle:(NSString *)title action:(void(^)(id<UITextInput>))action {
-    self = [super init];
+- (id)initWithInsertText:(NSString *)insertText {
+    return [self initWithTitle:insertText action:^(id<TKTextInput> keyInput) {
+        [keyInput insertText:insertText];
+    }];
+}
+
+- (id)initWithTitle:(NSString *)title action:(void(^)(id<TKTextInput>))action {
+    self = [self init];
     if (self) {
         self.title = title;
         self.action = action;
@@ -48,8 +69,17 @@
     return self;
 }
 
-- (id)initWithImage:(UIImage *)image action:(void(^)(id<UITextInput>))action {
-    self = [super init];
+- (id)initWithAttributedString:(NSAttributedString *)attributedTitle action:(void(^)(id<TKTextInput>))action {
+    self = [self init];
+    if (self) {
+        self.attributedTitle = attributedTitle;
+        self.action = action;
+    }
+    return self;
+}
+
+- (id)initWithImage:(UIImage *)image action:(void(^)(id<TKTextInput>))action {
+    self = [self init];
     if (self) {
         self.image = image;
         self.action = action;
@@ -59,9 +89,15 @@
 
 - (void)dealloc {
     self.title = nil;
+    self.attributedTitle = nil;
     self.image = nil;
     self.customView = nil;
     self.action = nil;
+    self.titleFont = nil;
+    self.titleColor = nil;
+    self.highlightTitleColor = nil;
+    self.backgroundColor = nil;
+    self.highlightBackgroundColor = nil;
     [super dealloc];
 }
 

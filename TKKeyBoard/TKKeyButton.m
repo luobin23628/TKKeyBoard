@@ -21,6 +21,17 @@
     [super dealloc];
 }
 
++ (UIImage *)imageWithColor:(UIColor *)color {
+    CGRect rect = (CGRect){.size = {1, 1}};
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return img;
+}
+
 + (TKKeyButton *)buttonWithItem:(TKKeyItem *)item {
     TKKeyButton *button = nil;
     if (item.customView) {
@@ -29,8 +40,27 @@
         button = [self buttonWithImage:item.image];
     } else {
         button = [self buttonWithTitle:item.title?:@""];
+        if (item.titleFont) {
+            button.titleLabel.font = item.titleFont;
+        }
+        if (item.titleColor) {
+            [button setTitleColor:item.titleColor forState:UIControlStateNormal];
+        }
+        if (item.highlightTitleColor) {
+            [button setTitleColor:item.highlightTitleColor forState:UIControlStateHighlighted];
+        }
     }
-    button.backgroundColor = [UIColor redColor];
+    
+    if (item.backgroundColor) {
+        [button setBackgroundImage:[self imageWithColor:item.backgroundColor] forState:UIControlStateNormal];
+    }
+    if (item.highlightBackgroundColor) {
+        [button setBackgroundImage:[self imageWithColor:item.highlightBackgroundColor] forState:UIControlStateHighlighted];
+    }
+    
+    button.adjustsImageWhenDisabled = NO;
+    button.enabled = item.enable;
+    
     button.item = item;
     return button;
 }
@@ -46,7 +76,7 @@
 + (TKKeyButton *)buttonWithTitle:(NSString *)title {
     TKKeyButton *button = [TKKeyButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:title forState:UIControlStateNormal];
-    [button.titleLabel setFont:[UIFont systemFontOfSize:20.0]];
+    [button.titleLabel setFont:[UIFont systemFontOfSize:24.0]];
     
     [button setTitleColor:[UIColor colorWithWhite:24/255.0 alpha:1] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor colorWithWhite:24/255.0 alpha:1] forState:UIControlStateHighlighted];

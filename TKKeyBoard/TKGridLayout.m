@@ -12,39 +12,38 @@
 
 - (id)init {
     if (self = [super init]) {
-        _columnCount = 1;
+        self.columnCount = 3;
+        self.rowCount = 3;
     }
     return self;
 }
 
 - (CGSize)layoutSubviews:(NSArray*)subviews forView:(UIView*)view {
     CGFloat innerWidth = (view.frame.size.width - self.padding*2);
-    CGFloat innerHeight = (view.frame.size.width - self.padding*2);
+    CGFloat innerHeight = (view.frame.size.height - self.padding*2);
     CGFloat width = ceil(innerWidth / self.columnCount);
     CGFloat height = ceil(innerHeight / self.rowCount);
-
-    CGFloat rowHeight = 0;
     
-    CGFloat x = _padding, y = _padding;
-    CGFloat maxX = 0, lastHeight = 0;
-    NSInteger column = 0;
-    for (UIView* subview in subviews) {
-        if (column % _columnCount == 0) {
-            x = _padding;
-            y += rowHeight + _spacing;
+    CGFloat maxX = 0, maxY = 0, x = 0, y = 0;
+    
+    for (NSUInteger i = 0; i < self.rowCount; i++) {
+        for (NSUInteger j = 0; j < self.columnCount; j++) {
+            NSUInteger index = i * self.columnCount + j;
+            if (index >= [subviews count]) {
+                break;
+            }
+            UIView *subview = [subviews objectAtIndex:index];
+            subview.layer.borderWidth = 0.5;
+            subview.layer.borderColor = [UIColor colorWithWhite:179/255.0 alpha:1].CGColor;
+            
+            x = self.padding + j * width;
+            y = self.padding + i * height;
+            subview.frame = CGRectMake(x, y, width, height);
+            maxX = MAX(maxX, x);
+            maxY = MAX(maxY, y);
         }
-        CGSize size = [subview sizeThatFits:CGSizeMake(width, 0)];
-        rowHeight = size.height;
-        subview.frame = CGRectMake(x, y, width, size.height);
-        x += subview.frame.size.width + _spacing;
-        if (x > maxX) {
-            maxX = x;
-        }
-        lastHeight = subview.frame.size.height;
-        ++column;
     }
-    
-    return CGSizeMake(maxX+_padding, y+lastHeight+_padding);
+    return CGSizeMake(maxX + self.padding, maxY + self.padding);
 }
 
 @end

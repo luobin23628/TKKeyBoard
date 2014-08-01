@@ -29,9 +29,7 @@
             rowHeight = subview.frame.size.height;
         }
     }
-    
     return CGSizeMake(maxX+_padding, y+rowHeight+_padding);
 }
-
 
 @end

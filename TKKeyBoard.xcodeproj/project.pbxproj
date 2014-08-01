@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A82C0AE0198BD95500FAEF2B /* TKTextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A82C0ADF198BD95500FAEF2B /* TKTextFieldViewController.m */; };
+		A849E68C198BF444008D2BCD /* TKTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A849E68B198BF444008D2BCD /* TKTextViewController.m */; };
 		A8BB1468198A8D4F00CEE1A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BB1467198A8D4F00CEE1A2 /* Foundation.framework */; };
 		A8BB146A198A8D4F00CEE1A2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BB1469198A8D4F00CEE1A2 /* CoreGraphics.framework */; };
 		A8BB146C198A8D4F00CEE1A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BB146B198A8D4F00CEE1A2 /* UIKit.framework */; };
@@ -31,6 +33,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A82C0ADE198BD95500FAEF2B /* TKTextFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTextFieldViewController.h; sourceTree = "<group>"; };
+		A82C0ADF198BD95500FAEF2B /* TKTextFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTextFieldViewController.m; sourceTree = "<group>"; };
+		A849E68A198BF444008D2BCD /* TKTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTextViewController.h; sourceTree = "<group>"; };
+		A849E68B198BF444008D2BCD /* TKTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTextViewController.m; sourceTree = "<group>"; };
 		A8BB1464198A8D4F00CEE1A2 /* TKKeyBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TKKeyBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8BB1467198A8D4F00CEE1A2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A8BB1469198A8D4F00CEE1A2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -122,6 +128,10 @@
 				A8BB1477198A8D4F00CEE1A2 /* TKAppDelegate.m */,
 				A8BB147F198A8D4F00CEE1A2 /* TKMasterViewController.h */,
 				A8BB1480198A8D4F00CEE1A2 /* TKMasterViewController.m */,
+				A82C0ADE198BD95500FAEF2B /* TKTextFieldViewController.h */,
+				A82C0ADF198BD95500FAEF2B /* TKTextFieldViewController.m */,
+				A849E68A198BF444008D2BCD /* TKTextViewController.h */,
+				A849E68B198BF444008D2BCD /* TKTextViewController.m */,
 				A8BB14A5198A95EB00CEE1A2 /* NSObject+Swizzle.h */,
 				A8BB14A6198A95EB00CEE1A2 /* NSObject+Swizzle.m */,
 				A8BB14AB198A9D5300CEE1A2 /* TKKeyboardManager.h */,
@@ -232,9 +242,11 @@
 			files = (
 				A8BB14A4198A8F3B00CEE1A2 /* TKKeyboard.m in Sources */,
 				A8BB1474198A8D4F00CEE1A2 /* main.m in Sources */,
+				A82C0AE0198BD95500FAEF2B /* TKTextFieldViewController.m in Sources */,
 				A8BB14B9198AAE3000CEE1A2 /* TKGridLinesKeyBoard.m in Sources */,
 				AB8C3195198B73FA00B771E8 /* TKKeyButton.m in Sources */,
 				A8BB1481198A8D4F00CEE1A2 /* TKMasterViewController.m in Sources */,
+				A849E68C198BF444008D2BCD /* TKTextViewController.m in Sources */,
 				A8BB14B0198AA18D00CEE1A2 /* TKHexboard.m in Sources */,
 				A8BB14B3198AA45800CEE1A2 /* TKKeyboardConfiguration.m in Sources */,
 				ABBCEDC3198B947E009A581E /* TKGridLayout.m in Sources */,
@@ -340,6 +352,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TKKeyBoard/TKKeyBoard-Prefix.pch";
 				INFOPLIST_FILE = "TKKeyBoard/TKKeyBoard-Info.plist";
@@ -353,6 +366,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TKKeyBoard/TKKeyBoard-Prefix.pch";
 				INFOPLIST_FILE = "TKKeyBoard/TKKeyBoard-Info.plist";
