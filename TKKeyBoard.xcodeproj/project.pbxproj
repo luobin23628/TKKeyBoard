@@ -21,9 +21,13 @@
 		A8BB14AD198A9D5300CEE1A2 /* TKKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BB14AC198A9D5300CEE1A2 /* TKKeyboardManager.m */; };
 		A8BB14B0198AA18D00CEE1A2 /* TKHexboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BB14AF198AA18D00CEE1A2 /* TKHexboard.m */; };
 		A8BB14B3198AA45800CEE1A2 /* TKKeyboardConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BB14B2198AA45800CEE1A2 /* TKKeyboardConfiguration.m */; };
-		A8BB14B6198AAA3800CEE1A2 /* UIButton+Keyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BB14B5198AAA3800CEE1A2 /* UIButton+Keyboard.m */; };
 		A8BB14B9198AAE3000CEE1A2 /* TKGridLinesKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BB14B8198AAE3000CEE1A2 /* TKGridLinesKeyBoard.m */; };
 		A8BB14BC198AAE8300CEE1A2 /* TKGridLinesTexturedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BB14BB198AAE8300CEE1A2 /* TKGridLinesTexturedView.m */; };
+		AB8C318F198B3FC300B771E8 /* TKKeyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8C318E198B3FC300B771E8 /* TKKeyItem.m */; };
+		AB8C3195198B73FA00B771E8 /* TKKeyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8C3194198B73FA00B771E8 /* TKKeyButton.m */; };
+		ABBCEDB9198B90B4009A581E /* TKLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBCEDB8198B90B4009A581E /* TKLayout.m */; };
+		ABBCEDC0198B9426009A581E /* TKFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBCEDBF198B9426009A581E /* TKFlowLayout.m */; };
+		ABBCEDC3198B947E009A581E /* TKGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBCEDC2198B947E009A581E /* TKGridLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,12 +57,20 @@
 		A8BB14AF198AA18D00CEE1A2 /* TKHexboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKHexboard.m; sourceTree = "<group>"; };
 		A8BB14B1198AA45800CEE1A2 /* TKKeyboardConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKKeyboardConfiguration.h; sourceTree = "<group>"; };
 		A8BB14B2198AA45800CEE1A2 /* TKKeyboardConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKKeyboardConfiguration.m; sourceTree = "<group>"; };
-		A8BB14B4198AAA3800CEE1A2 /* UIButton+Keyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Keyboard.h"; sourceTree = "<group>"; };
-		A8BB14B5198AAA3800CEE1A2 /* UIButton+Keyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Keyboard.m"; sourceTree = "<group>"; };
 		A8BB14B7198AAE3000CEE1A2 /* TKGridLinesKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKGridLinesKeyBoard.h; sourceTree = "<group>"; };
 		A8BB14B8198AAE3000CEE1A2 /* TKGridLinesKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKGridLinesKeyBoard.m; sourceTree = "<group>"; };
 		A8BB14BA198AAE8300CEE1A2 /* TKGridLinesTexturedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKGridLinesTexturedView.h; sourceTree = "<group>"; };
 		A8BB14BB198AAE8300CEE1A2 /* TKGridLinesTexturedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKGridLinesTexturedView.m; sourceTree = "<group>"; };
+		AB8C318D198B3FC300B771E8 /* TKKeyItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKKeyItem.h; sourceTree = "<group>"; };
+		AB8C318E198B3FC300B771E8 /* TKKeyItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKKeyItem.m; sourceTree = "<group>"; };
+		AB8C3193198B73FA00B771E8 /* TKKeyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKKeyButton.h; sourceTree = "<group>"; };
+		AB8C3194198B73FA00B771E8 /* TKKeyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKKeyButton.m; sourceTree = "<group>"; };
+		ABBCEDB7198B90B4009A581E /* TKLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLayout.h; sourceTree = "<group>"; };
+		ABBCEDB8198B90B4009A581E /* TKLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLayout.m; sourceTree = "<group>"; };
+		ABBCEDBE198B9426009A581E /* TKFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKFlowLayout.h; sourceTree = "<group>"; };
+		ABBCEDBF198B9426009A581E /* TKFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKFlowLayout.m; sourceTree = "<group>"; };
+		ABBCEDC1198B947E009A581E /* TKGridLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKGridLayout.h; sourceTree = "<group>"; };
+		ABBCEDC2198B947E009A581E /* TKGridLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKGridLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,22 +120,30 @@
 			children = (
 				A8BB1476198A8D4F00CEE1A2 /* TKAppDelegate.h */,
 				A8BB1477198A8D4F00CEE1A2 /* TKAppDelegate.m */,
-				A8BB14A5198A95EB00CEE1A2 /* NSObject+Swizzle.h */,
-				A8BB14A6198A95EB00CEE1A2 /* NSObject+Swizzle.m */,
 				A8BB147F198A8D4F00CEE1A2 /* TKMasterViewController.h */,
 				A8BB1480198A8D4F00CEE1A2 /* TKMasterViewController.m */,
+				A8BB14A5198A95EB00CEE1A2 /* NSObject+Swizzle.h */,
+				A8BB14A6198A95EB00CEE1A2 /* NSObject+Swizzle.m */,
 				A8BB14AB198A9D5300CEE1A2 /* TKKeyboardManager.h */,
 				A8BB14AC198A9D5300CEE1A2 /* TKKeyboardManager.m */,
 				A8BB14B1198AA45800CEE1A2 /* TKKeyboardConfiguration.h */,
 				A8BB14B2198AA45800CEE1A2 /* TKKeyboardConfiguration.m */,
+				AB8C318D198B3FC300B771E8 /* TKKeyItem.h */,
+				AB8C318E198B3FC300B771E8 /* TKKeyItem.m */,
+				AB8C3193198B73FA00B771E8 /* TKKeyButton.h */,
+				AB8C3194198B73FA00B771E8 /* TKKeyButton.m */,
 				A8BB14A2198A8F3B00CEE1A2 /* TKKeyboard.h */,
 				A8BB14A3198A8F3B00CEE1A2 /* TKKeyboard.m */,
+				ABBCEDB7198B90B4009A581E /* TKLayout.h */,
+				ABBCEDB8198B90B4009A581E /* TKLayout.m */,
+				ABBCEDBE198B9426009A581E /* TKFlowLayout.h */,
+				ABBCEDBF198B9426009A581E /* TKFlowLayout.m */,
+				ABBCEDC1198B947E009A581E /* TKGridLayout.h */,
+				ABBCEDC2198B947E009A581E /* TKGridLayout.m */,
 				A8BB14B7198AAE3000CEE1A2 /* TKGridLinesKeyBoard.h */,
 				A8BB14B8198AAE3000CEE1A2 /* TKGridLinesKeyBoard.m */,
 				A8BB14BA198AAE8300CEE1A2 /* TKGridLinesTexturedView.h */,
 				A8BB14BB198AAE8300CEE1A2 /* TKGridLinesTexturedView.m */,
-				A8BB14B4198AAA3800CEE1A2 /* UIButton+Keyboard.h */,
-				A8BB14B5198AAA3800CEE1A2 /* UIButton+Keyboard.m */,
 				A8BB14AE198AA18D00CEE1A2 /* TKHexboard.h */,
 				A8BB14AF198AA18D00CEE1A2 /* TKHexboard.m */,
 				A8BB14A8198A9D1C00CEE1A2 /* TKIntegerKeyboard.h */,
@@ -213,15 +233,19 @@
 				A8BB14A4198A8F3B00CEE1A2 /* TKKeyboard.m in Sources */,
 				A8BB1474198A8D4F00CEE1A2 /* main.m in Sources */,
 				A8BB14B9198AAE3000CEE1A2 /* TKGridLinesKeyBoard.m in Sources */,
+				AB8C3195198B73FA00B771E8 /* TKKeyButton.m in Sources */,
 				A8BB1481198A8D4F00CEE1A2 /* TKMasterViewController.m in Sources */,
 				A8BB14B0198AA18D00CEE1A2 /* TKHexboard.m in Sources */,
 				A8BB14B3198AA45800CEE1A2 /* TKKeyboardConfiguration.m in Sources */,
+				ABBCEDC3198B947E009A581E /* TKGridLayout.m in Sources */,
 				A8BB1478198A8D4F00CEE1A2 /* TKAppDelegate.m in Sources */,
-				A8BB14B6198AAA3800CEE1A2 /* UIButton+Keyboard.m in Sources */,
 				A8BB14AA198A9D1C00CEE1A2 /* TKIntegerKeyboard.m in Sources */,
 				A8BB14BC198AAE8300CEE1A2 /* TKGridLinesTexturedView.m in Sources */,
+				ABBCEDC0198B9426009A581E /* TKFlowLayout.m in Sources */,
 				A8BB14AD198A9D5300CEE1A2 /* TKKeyboardManager.m in Sources */,
 				A8BB14A7198A95EB00CEE1A2 /* NSObject+Swizzle.m in Sources */,
+				ABBCEDB9198B90B4009A581E /* TKLayout.m in Sources */,
+				AB8C318F198B3FC300B771E8 /* TKKeyItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +295,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -304,7 +328,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

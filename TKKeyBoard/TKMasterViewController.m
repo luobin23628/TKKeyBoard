@@ -7,6 +7,8 @@
 //
 
 #import "TKMasterViewController.h"
+#import "TKKeyboard.h"
+#import "TKKeyboardManager.h"
 
 @interface TKMasterViewController () {
     
@@ -34,10 +36,12 @@
 
 - (void)viewDidLoad
 {
+    [TKKeyboardManager shareInstance];
+    [[TKKeyboard alloc] init];
     [super viewDidLoad];
     self.textField = [[[UITextField alloc] initWithFrame:CGRectMake(20, 0, 280, 44)] autorelease];
     self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    
+    self.textField.keyboardType = TKKeyboardTypeHexPad;
 }
 
 #pragma mark - Table View

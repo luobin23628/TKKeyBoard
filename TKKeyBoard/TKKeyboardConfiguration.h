@@ -7,10 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TKKeyItem.h"
+#import "TKLayout.h"
 
 @interface TKKeyboardConfiguration : NSObject
 
-@property (nonatomic) CGSize keyboardSize;
+@property (nonatomic, retain) UIColor *backgroundColor;
+@property (nonatomic, assign) CGSize keyboardSize;
 @property (nonatomic, assign) NSInteger keyboardType;
+@property (nonatomic, retain) NSArray *keyItems;
+@property (nonatomic, retain) TKLayout *layout;
 
 @end

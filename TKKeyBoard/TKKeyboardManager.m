@@ -23,6 +23,7 @@
         @synchronized(self) {
             if (!shareInstance) {
                 shareInstance = [[TKKeyboardManager alloc] init];
+                [self initDefaultKeyboard];
             }
         }
     }
@@ -50,6 +51,42 @@
 - (TKKeyboardConfiguration *)configurationForKeyboardType:(NSInteger)keyboardType {
     TKKeyboardConfiguration *configuration = [self.keyboards objectForKey:@(keyboardType)];
     return configuration;
+}
+
+#pragma mark - Private
+
++ (void)initDefaultKeyboard {
+    TKKeyboardConfiguration *configiration = [[TKKeyboardConfiguration alloc] init];
+    configiration.keyboardType = TKKeyboardTypeHexPad;
+    configiration.keyboardSize = CGSizeMake(320, 216);
+    
+    NSMutableArray *keyItems = [NSMutableArray array];
+    for (int i = 0; i < 9; i++) {
+        TKKeyItem *keyItem = [[TKKeyItem alloc] initWithTitle:[NSString stringWithFormat:@"%d", i] action:^(id<UITextInput> textInput) {
+            [textInput insertText:[NSString stringWithFormat:@"%d", i + 1]];
+        }];
+        [keyItems addObject:keyItem];
+        [keyItem release];
+    }
+    
+    TKKeyItem *keyItem = [[TKKeyItem alloc] initWithType:TKKeyItemTypeBackspace action:nil];
+    [keyItems addObject:keyItem];
+    [keyItem release];
+    
+     keyItem = [[TKKeyItem alloc] initWithTitle:@"0" action:^(id<UITextInput> textInput) {
+        [textInput insertText:@"0"];
+    }];
+    [keyItems addObject:keyItem];
+    [keyItem release];
+    
+    keyItem = [[TKKeyItem alloc] initWithType:TKKeyItemTypeDelete action:^(id<UITextInput> textInput) {
+        [textInput deleteBackward];
+    }];
+    [keyItems addObject:keyItem];
+    [keyItem release];
+    
+    configiration.keyItems = keyItems;
+    [[TKKeyboardManager shareInstance] registerKeyboardConfiguration:configiration];
 }
 
 @end

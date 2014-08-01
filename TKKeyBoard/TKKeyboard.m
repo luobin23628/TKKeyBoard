@@ -9,6 +9,8 @@
 #import "TKKeyboard.h"
 #import "NSObject+Swizzle.h"
 #import "TKKeyboardManager.h"
+#import "TKKeyButton.h"
+#import "TKGridLayout.h"
 
 @interface UIResponder(Keyboard)
 
@@ -31,9 +33,30 @@
 
 @end
 
+@interface UITextField(Keyboard)
+
+@end
+
+@implementation UITextField(Keyboard)
+
+- (UIView *)replacedInputView {
+    TKKeyboardConfiguration *configuration = [[TKKeyboardManager shareInstance] configurationForKeyboardType:self.keyboardType];
+    if (configuration) {
+        TKKeyboard *keyboard = [[TKKeyboard alloc] initWithConfiguration:configuration];
+        [keyboard setTextInput:self];
+        return [keyboard autorelease];
+    }
+    UIView *inputView = [self replacedInputView];
+    return inputView;
+}
+
+@end
+
 @interface TKKeyboard ()
 
 @property (nonatomic, retain) TKKeyboardConfiguration *configuration;
+@property (nonatomic, retain) NSArray *keyButtons;
+@property (nonatomic, retain) TKLayout *layout;
 
 @end
 
@@ -43,6 +66,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [UIResponder swizzleMethod:@selector(inputView) withMethod:@selector(replacedInputView)];
+        [UITextField swizzleMethod:@selector(inputView) withMethod:@selector(replacedInputView)];
     });
 }
 
@@ -52,14 +76,44 @@
     if (self) {
         // Initialization code
         self.configuration = configuration;
+        
+        UIColor *backgroundColor = self.configuration.backgroundColor;
+        if (!backgroundColor) {
+            backgroundColor = [UIColor colorWithWhite:251/255.0 alpha:1];
+        }
+        self.backgroundColor = backgroundColor;
+        
+        NSMutableArray *keyButtons = [NSMutableArray array];
+        for (TKKeyItem *item in self.configuration.keyItems) {
+            TKKeyButton *keyBtn = [TKKeyButton buttonWithItem:item];
+            [keyBtn addTarget:self action:@selector(touchUpInsideAction:) forControlEvents:UIControlEventTouchUpInside];
+            [self addSubview:keyBtn];
+            [keyButtons addObject:keyBtn];
+        }
+        self.keyButtons = keyButtons;
+        
+        TKLayout *layout = self.configuration.layout;
+        if (!layout) {
+            TKGridLayout *gridLayout = [[[TKGridLayout alloc] init] autorelease];
+            gridLayout.columnCount = 3;
+            layout = gridLayout;
+        }
+        self.layout = layout;
     }
     return self;
 }
 
 - (void)dealloc {
+    self.keyButtons = nil;
     self.configuration = nil;
     self.textInput = nil;
     [super dealloc];
+}
+
+- (void)touchUpInsideAction:(TKKeyButton *)keyBtn {
+    if (keyBtn.item.action) {
+        keyBtn.item.action(_textInput);
+    }
 }
 
 - (void)setTextInput:(id<UITextInput>)textInput {
@@ -68,7 +122,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+    [self.layout layoutSubviews:self.keyButtons forView:self];
 }
 
 - (BOOL)textInput:(id <UITextInput>)textInput shouldChangeCharactersInRange:(NSRange)range withString:(NSString *)string

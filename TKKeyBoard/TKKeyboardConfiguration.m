@@ -10,4 +10,19 @@
 
 @implementation TKKeyboardConfiguration
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
+- (void)dealloc {
+    self.backgroundColor = nil;
+    self.layout = nil;
+    self.keyItems = nil;
+    [super dealloc];
+}
+
 @end

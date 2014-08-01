@@ -10,7 +10,7 @@
 #import "TKKeyboardConfiguration.h"
 
 typedef NS_ENUM(NSInteger, TKKeyboardType) {
-    TKKeyboardTypeIntegerPad = 999,
+    TKKeyboardTypeIntegerPad = 100,
     TKKeyboardTypeFloatPad,
     TKKeyboardTypeHexPad
 };
