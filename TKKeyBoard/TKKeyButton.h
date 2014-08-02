@@ -15,4 +15,7 @@
 
 @property (nonatomic, readonly) TKKeyItem *item;
 
+@property (nonatomic, assign) BOOL enableLongPressRepeat;     //default NO
+@property (nonatomic, readwrite, copy) void(^longPressRepeatAction)(TKKeyButton *keyButton);
+
 @end

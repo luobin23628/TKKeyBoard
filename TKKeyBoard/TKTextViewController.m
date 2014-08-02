@@ -23,7 +23,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"UITextField Demo";
+        self.title = @"UITextView Demo";
+        if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
+            self.automaticallyAdjustsScrollViewInsets = NO;
+        }
     }
     return self;
 }
@@ -35,7 +38,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.textView = [[[UITextView alloc] initWithFrame:CGRectMake(20, 100, 280, 100)] autorelease];
-//    self.textView.keyboardType = TKKeyboardTypeUIntegerPad;
+    self.textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.textView.keyboardType = TKKeyboardTypeUIntegerPad;
     self.textView.backgroundColor = [UIColor colorWithWhite:0.98 alpha:1];
     self.textView.delegate = self;
     self.textView.text = @"binGe Demo";

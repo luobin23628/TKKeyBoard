@@ -98,7 +98,7 @@
         [keyItem release];
 
     } else {
-        keyItem = [[TKKeyItem alloc] initWithType:TKKeyItemTypePositiveOrNegative action:^(id<TKTextInput> textInput) {
+        keyItem = [[TKKeyItem alloc] initWithType:TKKeyItemTypePositiveOrNegative action:^(id<TKTextInput> textInput, TKKeyItem *keyItem) {
             [textInput positiveOrNegative];
         }];
         keyItem.highlightBackgroundColor = [UIColor colorWithWhite:179/255.0 alpha:1];
@@ -111,9 +111,11 @@
     [keyItems addObject:keyItem];
     [keyItem release];
     
-    keyItem = [[TKKeyItem alloc] initWithType:TKKeyItemTypeDelete action:^(id<TKTextInput> textInput) {
+    keyItem = [[TKKeyItem alloc] initWithType:TKKeyItemTypeDelete action:^(id<TKTextInput> textInput, TKKeyItem *keyItem) {
         [textInput deleteBackward];
     }];
+    keyItem.enablesAutomatically = NO;
+    keyItem.enableLongPressRepeat = YES;
     keyItem.backgroundColor = [UIColor colorWithWhite:179/255.0 alpha:1];
     keyItem.highlightBackgroundColor = [UIColor colorWithWhite:251/255.0 alpha:1];
     [keyItems addObject:keyItem];

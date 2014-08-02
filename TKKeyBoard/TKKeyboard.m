@@ -13,7 +13,8 @@
 #import "TKGridLayout.h"
 
 #define kDefaultKeyboardHeigh 216.f
-#define kDefaultLandscapeKeyboardHeight 150.f
+#define kDefaultLandscapeKeyboardHeight 140.f
+#define kDefaultBackgroundColor [UIColor colorWithWhite:251/255.0 alpha:1]
 
 
 @interface TKKeyboard ()
@@ -38,7 +39,7 @@
         
         UIColor *backgroundColor = self.configuration.backgroundColor;
         if (!backgroundColor) {
-            backgroundColor = [UIColor colorWithWhite:251/255.0 alpha:1];
+            backgroundColor = kDefaultBackgroundColor;
         }
         self.backgroundColor = backgroundColor;
         
@@ -51,6 +52,12 @@
         for (TKKeyItem *item in self.configuration.keyItems) {
             TKKeyButton *keyBtn = [TKKeyButton buttonWithItem:item];
             [keyBtn addTarget:self action:@selector(touchUpInsideAction:) forControlEvents:UIControlEventTouchUpInside];
+            if (item.enableLongPressRepeat) {
+                __block TKKeyboard *keyboard = self;
+                [keyBtn setLongPressRepeatAction:^(TKKeyButton *keyButton) {
+                    [keyboard touchUpInsideAction:keyButton];
+                }];
+            }
             [self.container addSubview:keyBtn];
             [keyButtons addObject:keyBtn];
         }
@@ -83,8 +90,11 @@
 }
 
 - (void)touchUpInsideAction:(TKKeyButton *)keyBtn {
-    if (keyBtn.item.action) {
-        keyBtn.item.action((id<TKTextInput>)self);
+    if (keyBtn.enabled) {
+        [[UIDevice currentDevice] playInputClick];
+        if (keyBtn.item.action) {
+            keyBtn.item.action((id<TKTextInput>)self, keyBtn.item);
+        }
     }
 }
 
@@ -100,7 +110,7 @@
 #pragma mark - Private
 
 - (void)updateHeightForDisplay:(UIInterfaceOrientation)orientation {
-    CGFloat keyboardHeight;
+    CGFloat keyboardHeight = kDefaultKeyboardHeigh;
     if (UIInterfaceOrientationIsPortrait(orientation)) {
         keyboardHeight = self.configuration.keyboardHeight;
         if (keyboardHeight <= 0) {
@@ -120,7 +130,6 @@
 - (void)statusBarOrientationDidChange:(NSNotification *)notification {
     if (self.window) {
         UIInterfaceOrientation orientation = [[notification.userInfo objectForKey:UIApplicationStatusBarOrientationUserInfoKey] intValue];
-        
         if (orientation != self.orientation) {
             self.orientation = orientation;
             NSTimeInterval statusBarOrientationAnimationDuration = [UIApplication sharedApplication].statusBarOrientationAnimationDuration;
@@ -163,6 +172,23 @@
     NSRange selectedRange = NSMakeRange(startPos, length);
     if ([self textInput:textInput shouldChangeCharactersInRange:selectedRange withString:string]) {
         [textInput replaceRange:textRange withText:string];
+        [self textDidChange:textInput];
+    }
+}
+
+- (void)textDidChange:(id <UITextInput>)textInput {
+    if ([self isEmpty]) {
+        for (TKKeyButton *keyBtn in self.keyButtons) {
+            if (keyBtn.item.enablesAutomatically) {
+                keyBtn.enabled = NO;
+            }
+        }
+    } else {
+        for (TKKeyButton *keyBtn in self.keyButtons) {
+            if (keyBtn.item.enablesAutomatically) {
+                keyBtn.enabled = YES;
+            }
+        }
     }
 }
 
@@ -173,6 +199,14 @@
 }
 
 #pragma mark - TKKeyInput
+
+- (BOOL)isEmpty {
+    UITextPosition *startPos = self.textInput.beginningOfDocument;
+    UITextPosition *endPost = self.textInput.endOfDocument;
+    UITextRange *allTextRange = [self.textInput textRangeFromPosition:startPos
+                                                           toPosition:endPost];
+    return allTextRange.isEmpty;
+}
 
 - (UIResponder *)firstResponder {
     return self.textInput;
@@ -277,6 +311,12 @@
 -(BOOL)respondsToSelector:(SEL)aSelector;
 {
 	return [super respondsToSelector:aSelector] || [self.textInput respondsToSelector:aSelector];
+}
+
+#pragma mark - UIInputViewAudioFeedback
+
+- (BOOL) enableInputClicksWhenVisible {
+    return YES;
 }
 
 @end

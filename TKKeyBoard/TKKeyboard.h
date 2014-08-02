@@ -19,13 +19,14 @@ typedef NS_ENUM(NSInteger, TKKeyboardType) {
 @protocol TKTextInput<UITextInput>
 
 - (UIResponder *)firstResponder;
+- (BOOL)isEmpty;
 - (void)clear;
 - (void)keyReturn;
 - (void)positiveOrNegative;
 
 @end
 
-@interface TKKeyboard : UIView
+@interface TKKeyboard : UIView<UIInputViewAudioFeedback>
 
 - (id)initWithConfiguration:(TKKeyboardConfiguration *)configuration;
 

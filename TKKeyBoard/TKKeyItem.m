@@ -15,7 +15,7 @@
 @property (nonatomic, readwrite, retain) NSAttributedString *attributedTitle;
 @property (nonatomic, readwrite, retain) UIImage *image;
 @property (nonatomic, readwrite, retain) UIView *customView;
-@property (nonatomic, readwrite, copy) void(^action)(id<TKTextInput>);
+@property (nonatomic, readwrite, copy) void(^action)(id<TKTextInput> textInput, TKKeyItem *keyItem);
 
 @end
 
@@ -25,15 +25,21 @@
     self = [super init];
     if (self) {
         self.enable = YES;
+        self.enableLongPressRepeat = NO;
+        self.enablesAutomatically = NO;
     }
     return self;
 }
 
-- (id)initWithType:(TKKeyItemType)type action:(void(^)(id<TKTextInput>))action {
+- (id)initWithType:(TKKeyItemType)type action:(void(^)(id<TKTextInput> textInput, TKKeyItem *keyItem))action {
     self = [self init];
     if (self) {
         if (type == TKKeyItemTypeDelete) {
             self.image = [UIImage imageNamed:@"delete.png"];
+            self.enableLongPressRepeat = YES;
+        } else if (type == TKKeyItemTypeReturn) {
+            self.title = @"完成";
+            self.enablesAutomatically = YES;
         } else if (type == TKKeyItemTypeBackspace) {
             self.image = nil;
             self.title = nil;
@@ -45,7 +51,7 @@
     return self;
 }
 
-- (id)initWithCustomView:(UIView *)customView action:(void(^)(id<TKTextInput>))action {
+- (id)initWithCustomView:(UIView *)customView action:(void(^)(id<TKTextInput> textInput, TKKeyItem *keyItem))action {
     self = [self init];
     if (self) {
         self.action = action;
@@ -55,12 +61,12 @@
 }
 
 - (id)initWithInsertText:(NSString *)insertText {
-    return [self initWithTitle:insertText action:^(id<TKTextInput> keyInput) {
-        [keyInput insertText:insertText];
+    return [self initWithTitle:insertText action:^(id<TKTextInput> textInput, TKKeyItem *keyItem) {
+        [textInput insertText:insertText];
     }];
 }
 
-- (id)initWithTitle:(NSString *)title action:(void(^)(id<TKTextInput>))action {
+- (id)initWithTitle:(NSString *)title action:(void(^)(id<TKTextInput> textInput, TKKeyItem *keyItem))action {
     self = [self init];
     if (self) {
         self.title = title;
@@ -69,7 +75,7 @@
     return self;
 }
 
-- (id)initWithAttributedString:(NSAttributedString *)attributedTitle action:(void(^)(id<TKTextInput>))action {
+- (id)initWithAttributedString:(NSAttributedString *)attributedTitle action:(void(^)(id<TKTextInput> textInput, TKKeyItem *keyItem))action {
     self = [self init];
     if (self) {
         self.attributedTitle = attributedTitle;
@@ -78,7 +84,7 @@
     return self;
 }
 
-- (id)initWithImage:(UIImage *)image action:(void(^)(id<TKTextInput>))action {
+- (id)initWithImage:(UIImage *)image action:(void(^)(id<TKTextInput> textInput, TKKeyItem *keyItem))action {
     self = [self init];
     if (self) {
         self.image = image;
