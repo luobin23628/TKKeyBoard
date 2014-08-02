@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TKLayout : NSObject
+@protocol TKLayout <NSObject>
 
-- (CGSize)layoutSubviews:(NSArray*)subviews forView:(UIView*)view;
+- (void)layoutKeyButtons:(NSArray*)keyButtons forContainer:(UIView*)container;
 
 @end

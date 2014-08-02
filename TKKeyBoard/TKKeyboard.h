@@ -12,8 +12,9 @@
 typedef NS_ENUM(NSInteger, TKKeyboardType) {
     TKKeyboardTypeIntegerPad = 100,
     TKKeyboardTypeUIntegerPad,
+    TKKeyboardTypeHexPad,
+    TKKeyboardTypeUnsignedHexPad,
     TKKeyboardTypeFloatPad,
-    TKKeyboardTypeHexPad
 };
 
 @protocol TKTextInput<UITextInput>
@@ -21,7 +22,7 @@ typedef NS_ENUM(NSInteger, TKKeyboardType) {
 - (UIResponder *)firstResponder;
 - (BOOL)isEmpty;
 - (void)clear;
-- (void)keyReturn;
+- (void)returnKey;
 - (void)positiveOrNegative;
 
 @end

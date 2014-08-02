@@ -10,4 +10,8 @@
 
 @interface TKTextFieldViewController : UIViewController
 
+- (id)initWithKeyboardType:(NSInteger)keyboardType;
+
+@property (nonatomic, readonly) UITextField *textField;
+
 @end

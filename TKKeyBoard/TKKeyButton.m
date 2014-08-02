@@ -9,6 +9,9 @@
 #import "TKKeyButton.h"
 #import <objc/runtime.h>
 
+#define kDefaultBackgroundColor [UIColor colorWithWhite:251/255.0 alpha:1]
+#define kDefaultHighlightedBackgroundColor [UIColor colorWithWhite:179/255.0 alpha:1]
+
 @interface TKKeyButton()
 
 @property (nonatomic, readwrite, retain) TKKeyItem *item;
@@ -51,9 +54,15 @@
     if (item.backgroundColor) {
         UIImage *backgroundImage = [self imageWithColor:item.backgroundColor];
         [button setBackgroundImage:backgroundImage forState:UIControlStateNormal];
+    } else {
+        UIImage *backgroundImage = [self imageWithColor:kDefaultBackgroundColor];
+        [button setBackgroundImage:backgroundImage forState:UIControlStateNormal];
     }
     if (item.highlightBackgroundColor) {
         [button setBackgroundImage:[self imageWithColor:item.highlightBackgroundColor] forState:UIControlStateHighlighted];
+    } else {
+        UIImage *backgroundImage = [self imageWithColor:kDefaultHighlightedBackgroundColor];
+        [button setBackgroundImage:backgroundImage forState:UIControlStateHighlighted];
     }
     button.adjustsImageWhenDisabled = NO;
     button.enabled = item.enable;

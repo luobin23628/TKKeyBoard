@@ -8,28 +8,58 @@
 
 #import "TKFlowLayout.h"
 
+@interface TKFlowLayout ()
+
+@property (nonatomic, readwrite, copy) CGSize(^sizeForIndexBlock)(NSUInteger index, TKFlowLayout *layout, UIView *container);
+
+@end
+
 @implementation TKFlowLayout
 
-- (CGSize)layoutSubviews:(NSArray*)subviews forView:(UIView*)view {
-    CGFloat x = _padding, y = _padding;
+- (instancetype)initWithSizeForIndexBlock:(CGSize(^)(NSUInteger index, TKFlowLayout *layout, UIView *container))sizeForIndexBlock {
+    self = [super init];
+    if (self) {
+        NSAssert(sizeForIndexBlock, @"sizeForIndexBlock must not be nil.");
+        self.sizeForIndexBlock = sizeForIndexBlock;
+        self.spacing = 0.5;
+    }
+    return self;
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [self doesNotRecognizeSelector:_cmd];
+    }
+    return self;
+}
+
+- (void)dealloc {
+    self.sizeForIndexBlock = nil;
+    [super dealloc];
+}
+
+- (void)layoutKeyButtons:(NSArray*)keyButtons forContainer:(UIView*)container {
+    CGFloat x = self.padding, y = self.padding;
     CGFloat maxX = 0, rowHeight = 0;
-    CGFloat maxWidth = view.frame.size.width - _padding*2;
-    for (UIView* subview in subviews) {
-        if (x > _padding && x + subview.frame.size.width > maxWidth) {
-            x = _padding;
-            y += rowHeight + _spacing;
+    CGFloat maxWidth = container.frame.size.width - self.padding*2;
+    for (int i = 0; i < [keyButtons count]; i++) {
+        UIView* subview = [keyButtons objectAtIndex:i];
+        CGSize size = self.sizeForIndexBlock(i, self, container);
+        if (x > self.padding && x + size.width > maxWidth) {
+            x = self.padding;
+            y += rowHeight + self.spacing;
             rowHeight = 0;
         }
-        subview.frame = CGRectMake(x, y, subview.frame.size.width, subview.frame.size.height);
-        x += subview.frame.size.width + _spacing;
+        subview.frame = CGRectMake(x, y, size.width, size.height);
+        x += size.width + self.spacing;
         if (x > maxX) {
             maxX = x;
         }
-        if (subview.frame.size.height > rowHeight) {
-            rowHeight = subview.frame.size.height;
+        if (size.height > rowHeight) {
+            rowHeight = size.height;
         }
     }
-    return CGSizeMake(maxX+_padding, y+rowHeight+_padding);
 }
 
 @end

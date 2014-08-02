@@ -8,9 +8,13 @@
 
 #import "TKLayout.h"
 
-@interface TKFlowLayout : TKLayout
+@interface TKFlowLayout : NSObject <TKLayout>
+
+- (instancetype)initWithSizeForIndexBlock:(CGSize(^)(NSUInteger index, TKFlowLayout *layout, UIView *container))sizeForIndexBlock;
 
 @property (nonatomic, assign) CGFloat padding;
 @property (nonatomic, assign) CGFloat spacing;
+
+@property (nonatomic, readonly) CGSize(^sizeForIndexBlock)(NSUInteger index, TKFlowLayout *layout, UIView *container);
 
 @end

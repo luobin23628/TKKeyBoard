@@ -23,7 +23,7 @@
 
 @property (nonatomic, retain) TKKeyboardConfiguration *configuration;
 @property (nonatomic, retain) NSArray *keyButtons;
-@property (nonatomic, retain) TKLayout *layout;
+@property (nonatomic, retain) id<TKLayout> layout;
 @property (nonatomic, retain) UIView *container;
 @property (nonatomic, assign) UIInterfaceOrientation orientation;
 
@@ -63,7 +63,7 @@
         }
         self.keyButtons = keyButtons;
         
-        TKLayout *layout = self.configuration.layout;
+        id<TKLayout> layout = self.configuration.layout;
         if (!layout) {
             TKGridLayout *gridLayout = [[[TKGridLayout alloc] init] autorelease];
             gridLayout.columnCount = 3;
@@ -104,7 +104,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    [self.layout layoutSubviews:self.keyButtons forView:self.container];
+    [self.layout layoutKeyButtons:self.keyButtons forContainer:self.container];
 }
 
 #pragma mark - Private
@@ -258,7 +258,7 @@
     }
 }
 
-- (void)keyReturn {
+- (void)returnKey {
     if ([self.textInput isKindOfClass:[UITextField class]]) {
         id<UITextFieldDelegate> delegate = [(UITextField *)self.textInput delegate];
         if ([delegate respondsToSelector:@selector(textFieldShouldReturn:)]) {

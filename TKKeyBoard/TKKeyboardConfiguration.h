@@ -17,6 +17,6 @@
 @property (nonatomic, assign) CGFloat landscapeKeyboardHeight;  //Default 216
 @property (nonatomic, assign) NSInteger keyboardType;
 @property (nonatomic, retain) NSArray *keyItems;
-@property (nonatomic, retain) TKLayout *layout;    //Default TKGridLayout
+@property (nonatomic, retain) id<TKLayout> layout;    //Default TKGridLayout
 
 @end

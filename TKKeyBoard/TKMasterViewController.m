@@ -7,10 +7,9 @@
 //
 
 #import "TKMasterViewController.h"
-#import "TKKeyboard.h"
-#import "TKKeyboardManager.h"
 #import "TKTextFieldViewController.h"
 #import "TKTextViewController.h"
+#import "TKKeyboard.h"
 
 @interface TKMasterViewController () {
     
@@ -36,8 +35,6 @@
 
 - (void)viewDidLoad
 {
-    [TKKeyboardManager shareInstance];
-    [[TKKeyboard alloc] init];
     [super viewDidLoad];
 }
 
@@ -54,11 +51,12 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
+        cell.textLabel.font = [UIFont systemFontOfSize:18];
     }
     if (indexPath.row == 0) {
-        cell.textLabel.text = @"UITextField";
+        cell.textLabel.text = @"TKKeyboardTypeIntegerPad";
     } else if (indexPath.row == 1) {
-        cell.textLabel.text = @"UITextView";
+        cell.textLabel.text = @"TKKeyboardTypeHexPad";
     }
     return cell;
 }
@@ -67,13 +65,13 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0) {
-        TKTextFieldViewController *textFieldViewController = [[TKTextFieldViewController alloc] init];
+        TKTextFieldViewController *textFieldViewController = [[TKTextFieldViewController alloc] initWithKeyboardType:TKKeyboardTypeIntegerPad];
         [self.navigationController pushViewController:textFieldViewController animated:YES];
         [textFieldViewController release];
     } else if (indexPath.row == 1) {
-        TKTextViewController *textViewController = [[TKTextViewController alloc] init];
-        [self.navigationController pushViewController:textViewController animated:YES];
-        [textViewController release];
+        TKTextFieldViewController *textFieldViewController = [[TKTextFieldViewController alloc] initWithKeyboardType:TKKeyboardTypeHexPad];
+        [self.navigationController pushViewController:textFieldViewController animated:YES];
+        [textFieldViewController release];
     }
 }
 

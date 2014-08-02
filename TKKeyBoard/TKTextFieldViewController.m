@@ -13,17 +13,19 @@
 @interface TKTextFieldViewController ()<UITextFieldDelegate>
 
 @property (nonatomic, retain) UITextField *textField;
+@property (nonatomic, assign) NSInteger keyboardType;
 
 @end
 
 @implementation TKTextFieldViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithKeyboardType:(NSInteger)keyboardType;
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
         // Custom initialization
         self.title = @"UITextField Demo";
+        self.keyboardType = keyboardType;
         if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
             self.automaticallyAdjustsScrollViewInsets = NO;
         }
@@ -40,8 +42,8 @@
     self.textField = [[[UITextField alloc] initWithFrame:CGRectMake(20, 70, 280, 44)] autorelease];
     self.textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    self.textField.keyboardType = TKKeyboardTypeIntegerPad;
     self.textField.font = [UIFont systemFontOfSize:20];
+    self.textField.keyboardType = self.keyboardType;
     self.textField.delegate = self;
     self.textField.text = @"binGe Demo";
     self.textField.borderStyle = UITextBorderStyleLine;
