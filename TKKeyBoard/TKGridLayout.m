@@ -18,9 +18,35 @@
     return self;
 }
 
+- (void)shiftTop:(NSUInteger)gridIndex {
+    
+}
+
+- (void)shiftLeft:(NSUInteger)gridIndex {
+    
+}
+
+- (void)shiftBottom:(NSUInteger)gridIndex {
+    
+}
+
+- (void)shiftRight:(NSUInteger)gridIndex {
+    
+}
+
+- (void)shiftEntireRow:(NSUInteger)gridIndex {
+    
+}
+
+- (void)shiftEntireColumn:(NSUInteger)gridIndex {
+    
+}
+
 - (CGSize)layoutSubviews:(NSArray*)subviews forView:(UIView*)view {
-    CGFloat innerWidth = (view.frame.size.width - self.padding*2);
-    CGFloat innerHeight = (view.frame.size.height - self.padding*2);
+    NSAssert(self.padding >= 0, @"self.padding >= 0");
+    NSAssert(self.spacing >= 0, @"self.padding >= 0");
+    CGFloat innerWidth = (view.frame.size.width - self.padding*2  - (self.columnCount - 1) *self.spacing);
+    CGFloat innerHeight = (view.frame.size.height - self.padding*2 - (self.rowCount - 1) *self.spacing);
     CGFloat width = ceil(innerWidth / self.columnCount);
     CGFloat height = ceil(innerHeight / self.rowCount);
     
@@ -36,8 +62,8 @@
             subview.layer.borderWidth = 0.5;
             subview.layer.borderColor = [UIColor colorWithWhite:179/255.0 alpha:1].CGColor;
             
-            x = self.padding + j * width;
-            y = self.padding + i * height;
+            x = self.padding + j * (width + self.spacing);
+            y = self.padding + i * (height + self.spacing);
             subview.frame = CGRectMake(x, y, width, height);
             maxX = MAX(maxX, x);
             maxY = MAX(maxY, y);

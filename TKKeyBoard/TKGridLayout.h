@@ -15,4 +15,11 @@
 @property (nonatomic, assign) NSUInteger rowCount;
 @property (nonatomic, assign) NSUInteger columnCount;
 
+- (void)shiftTop:(NSUInteger)gridIndex;
+- (void)shiftLeft:(NSUInteger)gridIndex;
+- (void)shiftBottom:(NSUInteger)gridIndex;
+- (void)shiftRight:(NSUInteger)gridIndex;
+- (void)shiftEntireRow:(NSUInteger)gridIndex;
+- (void)shiftEntireColumn:(NSUInteger)gridIndex;
+
 @end

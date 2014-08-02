@@ -35,7 +35,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.textView = [[[UITextView alloc] initWithFrame:CGRectMake(20, 100, 280, 100)] autorelease];
-    self.textView.keyboardType = TKKeyboardTypeUIntegerPad;
+//    self.textView.keyboardType = TKKeyboardTypeUIntegerPad;
     self.textView.backgroundColor = [UIColor colorWithWhite:0.98 alpha:1];
     self.textView.delegate = self;
     self.textView.text = @"binGe Demo";

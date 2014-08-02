@@ -12,6 +12,10 @@
 #import "TKKeyButton.h"
 #import "TKGridLayout.h"
 
+#define kDefaultKeyboardHeigh 216.f
+#define kDefaultLandscapeKeyboardHeight 150.f
+
+
 @interface TKKeyboard ()
 
 @property (nonatomic, readwrite, assign) id<UITextInput> textInput;
@@ -20,14 +24,14 @@
 @property (nonatomic, retain) NSArray *keyButtons;
 @property (nonatomic, retain) TKLayout *layout;
 @property (nonatomic, retain) UIView *container;
+@property (nonatomic, assign) UIInterfaceOrientation orientation;
 
 @end
 
 @implementation TKKeyboard
 
 - (id)initWithConfiguration:(TKKeyboardConfiguration *)configuration {
-    CGSize keyboardSize = configuration.keyboardSize;
-    self = [super initWithFrame:CGRectMake(0, 0, keyboardSize.width, keyboardSize.height)];
+    self = [super initWithFrame:CGRectMake(0, 0, 1, 1)];
     if (self) {
         // Initialization code
         self.configuration = configuration;
@@ -59,11 +63,17 @@
             layout = gridLayout;
         }
         self.layout = layout;
+        
+        self.orientation = [UIApplication sharedApplication].statusBarOrientation;
+        [self updateHeightForDisplay:self.orientation];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusBarOrientationDidChange:) name:UIApplicationWillChangeStatusBarOrientationNotification object:nil];
+
     }
     return self;
 }
 
 - (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillChangeStatusBarOrientationNotification object:nil];
     self.container = nil;
     self.layout = nil;
     self.keyButtons = nil;
@@ -88,6 +98,38 @@
 }
 
 #pragma mark - Private
+
+- (void)updateHeightForDisplay:(UIInterfaceOrientation)orientation {
+    CGFloat keyboardHeight;
+    if (UIInterfaceOrientationIsPortrait(orientation)) {
+        keyboardHeight = self.configuration.keyboardHeight;
+        if (keyboardHeight <= 0) {
+            keyboardHeight = kDefaultKeyboardHeigh;
+        }
+    } else if (UIInterfaceOrientationIsLandscape(orientation)) {
+        keyboardHeight = self.configuration.landscapeKeyboardHeight;
+        if (keyboardHeight <= 0) {
+            keyboardHeight = kDefaultLandscapeKeyboardHeight;
+        }
+    }
+    CGRect frame = self.frame;
+    frame.size.height = keyboardHeight;
+    self.frame = frame;
+}
+
+- (void)statusBarOrientationDidChange:(NSNotification *)notification {
+    if (self.window) {
+        UIInterfaceOrientation orientation = [[notification.userInfo objectForKey:UIApplicationStatusBarOrientationUserInfoKey] intValue];
+        
+        if (orientation != self.orientation) {
+            self.orientation = orientation;
+            NSTimeInterval statusBarOrientationAnimationDuration = [UIApplication sharedApplication].statusBarOrientationAnimationDuration;
+            [UIView animateWithDuration:statusBarOrientationAnimationDuration delay:0 options:UIViewAnimationOptionLayoutSubviews|UIViewAnimationOptionBeginFromCurrentState animations:^{
+                [self updateHeightForDisplay:self.orientation];
+            } completion:nil];
+        }
+    }
+}
 
 - (BOOL)textInput:(id <UITextInput>)textInput shouldChangeCharactersInRange:(NSRange)range withString:(NSString *)string
 {
@@ -131,6 +173,10 @@
 }
 
 #pragma mark - TKKeyInput
+
+- (UIResponder *)firstResponder {
+    return self.textInput;
+}
 
 - (void)insertText:(NSString *)text {
     UITextRange *textRange = [self.textInput selectedTextRange];
@@ -236,7 +282,12 @@
 @end
 
 
+static char keyboardKey;
+
 @interface UIResponder(TKKeyboard)
+
+@property (nonatomic, retain) TKKeyboard *keyboard;
+
 @end
 
 @interface UITextField(TKKeyboard)
@@ -254,14 +305,27 @@
     });
 }
 
+- (void)setKeyboard:(TKKeyboard *)keyboard {
+    objc_setAssociatedObject(self, &keyboardKey, keyboard, OBJC_ASSOCIATION_RETAIN);
+}
+
+- (TKKeyboard *)keyboard {
+    return objc_getAssociatedObject(self, &keyboardKey);
+}
+
 - (UIView *)replacedInputView {
     if ([self conformsToProtocol:@protocol(UITextInput)]) {
         UIResponder<UITextInput> *textInputView = (UIResponder<UITextInput> *)self;
         TKKeyboardConfiguration *configuration = [[TKKeyboardManager shareInstance] configurationForKeyboardType:textInputView.keyboardType];
         if (configuration) {
-            TKKeyboard *keyboard = [[TKKeyboard alloc] initWithConfiguration:configuration];
-            [keyboard setTextInput:textInputView];
-            return [keyboard autorelease];
+            if (self.keyboard.configuration == configuration) {
+                return self.keyboard;
+            } else {
+                TKKeyboard *keyboard = [[TKKeyboard alloc] initWithConfiguration:configuration];
+                [keyboard setTextInput:textInputView];
+                self.keyboard = keyboard;
+                return [keyboard autorelease];
+            }
         }
     }
     UIView *inputView = [self replacedInputView];

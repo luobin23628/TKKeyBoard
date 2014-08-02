@@ -18,6 +18,7 @@ typedef NS_ENUM(NSInteger, TKKeyboardType) {
 
 @protocol TKTextInput<UITextInput>
 
+- (UIResponder *)firstResponder;
 - (void)clear;
 - (void)keyReturn;
 - (void)positiveOrNegative;

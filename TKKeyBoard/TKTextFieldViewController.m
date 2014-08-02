@@ -36,8 +36,8 @@
     
     self.textField = [[[UITextField alloc] initWithFrame:CGRectMake(20, 100, 280, 44)] autorelease];
     self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    self.textField.keyboardType = TKKeyboardTypeIntegerPad;
-    
+//    self.textField.keyboardType = TKKeyboardTypeIntegerPad;
+    self.textField.font = [UIFont systemFontOfSize:20];
     self.textField.delegate = self;
     self.textField.text = @"binGe Demo";
     self.textField.borderStyle = UITextBorderStyleLine;

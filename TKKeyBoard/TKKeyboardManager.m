@@ -72,7 +72,7 @@
     } else {
         configiration.keyboardType = TKKeyboardTypeIntegerPad;
     }
-    configiration.keyboardSize = CGSizeMake(320, 216);
+    configiration.keyboardHeight = 216;
     
     TKGridLayout *layout = [[TKGridLayout alloc] init];
     layout.rowCount = 4;
