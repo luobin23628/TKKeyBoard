@@ -218,16 +218,21 @@
 }
 
 - (void)deleteBackward {
+    UITextRange *rangeToDelete;
     UITextRange *selectedTextRange = self.textInput.selectedTextRange;
-    UITextPosition  *startPosition = [self.textInput positionFromPosition:selectedTextRange.start offset:-1];
-    if (!startPosition) {
-        return;
+    if ([selectedTextRange isEmpty]) {
+        UITextPosition  *startPosition = [self.textInput positionFromPosition:selectedTextRange.start offset:-1];
+        if (!startPosition) {
+            return;
+        }
+        UITextPosition *endPosition = selectedTextRange.end;
+        if (!endPosition) {
+            return;
+        }
+        rangeToDelete = [self.textInput textRangeFromPosition:startPosition toPosition:endPosition];
+    } else {
+        rangeToDelete = selectedTextRange;
     }
-    UITextPosition *endPosition = selectedTextRange.end;
-    if (!endPosition) {
-        return;
-    }
-    UITextRange *rangeToDelete = [self.textInput textRangeFromPosition:startPosition toPosition:endPosition];
     [self textInput:self.textInput replaceTextAtTextRange:rangeToDelete withString:@""];
 }
 
