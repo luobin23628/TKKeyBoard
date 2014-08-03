@@ -42,8 +42,6 @@ This will display a black popover with automatic arrow positioning and a maximum
 6、`TKKeyboardTypeUnsignedFloatPad`
 
 
-
-
 ### Customize a keyboard
 
 #### TKKeyboardManager
@@ -85,7 +83,5 @@ This will display a black popover with automatic arrow positioning and a maximum
 - [LuoBin](https://github.com/luobin23628) ([@luobin](mailto:luobin23628@163.com?subject=TKKeyboard))
 
 ## License
-
-========
 
 TKKeyboard is available under MIT license. See the LICENSE file for more info.
