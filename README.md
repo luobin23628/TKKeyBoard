@@ -20,8 +20,7 @@ You should only import `TKKeyboard.h`
 
 ### Use already support keyboard type
 
-
-    Let's start with a simple example
+Let's start with a simple example
     
 ```objective-c
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(20, 70, 280, 44)];
@@ -33,7 +32,7 @@ You should only import `TKKeyboard.h`
     
 This will display a black popover with automatic arrow positioning and a maximum of 200x300 content size and no delegate messages.
 
-    #### already support keyboard type
+#### already support keyboard type
 
 1、`TKKeyboardTypeIntegerPad`<br/>
 2、`TKKeyboardTypeUIntegerPad`<br/>
@@ -41,6 +40,8 @@ This will display a black popover with automatic arrow positioning and a maximum
 4、`TKKeyboardTypeUnsignedHexPad`<br/>
 5、`TKKeyboardTypeFloatPad`<br/>
 6、`TKKeyboardTypeUnsignedFloatPad`
+
+
 
 
 ### Customize a keyboard
@@ -79,8 +80,12 @@ This will display a black popover with automatic arrow positioning and a maximum
 
 ### Maintainers
 
+========
+
 - [LuoBin](https://github.com/luobin23628) ([@luobin](mailto:luobin23628@163.com?subject=TKKeyboard))
 
 ## License
+
+========
 
 TKKeyboard is available under MIT license. See the LICENSE file for more info.
