@@ -191,11 +191,11 @@ NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completion
 
 ## Contact
 
-Follow AFNetworking on Twitter ([@AFNetworking](https://twitter.com/AFNetworking))
+Follow AFNetworking on Twitter ([@LuoBin](luobin23628@163.com))
 
 ### Maintainers
 
-- [Mattt Thompson](http://github.com/mattt) ([@mattt](https://twitter.com/mattt))
+- [LuoBin](https://github.com/luobin23628) ([@luobin](https://twitter.com/mattt))
 
 ## License
 
