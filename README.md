@@ -4,6 +4,16 @@ TKKeyBoard
 This library provides an alternative to the native iOS keyboard, support customize the look and feel of the keyboard.
 
 
+Features
+========
+
+* Works like system keyboard.
+* Runs on both iPhone and iPad.
+* Customize the look of keyboard.
+* Automatic orientation.
+* MIT License (you can use it for commercial apps, edit and redistribute).
+
+
 ## Usage
 
 
@@ -66,4 +76,4 @@ This library provides an alternative to the native iOS keyboard, support customi
 
 ## License
 
-TKKeyboard is available under the Apache v2 license. See the LICENSE file for more info.
+TKKeyboard is available under MIT license. See the LICENSE file for more info.
