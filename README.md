@@ -26,6 +26,8 @@ Let's start with a simple example
 ```objective-c
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(20, 70, 280, 44)];
     textField.keyboardType = TKKeyboardTypeIntegerPad;
+    [self.view addSubview:self.textField];
+    [textField release];
 ```
     
 This will display a integer keyboard, as simple as use system keyboard.
