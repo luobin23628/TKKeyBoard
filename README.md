@@ -77,7 +77,7 @@ This will display a integer keyboard, as simple as use system keyboard.
 
 ## Maintainers
 
-- [LuoBin](https://github.com/luobin23628) ([Email:luobin23628@163.com](mailto:luobin23628@163.com?subject=TKKeyboard),   [QQ:362906763])
+- [LuoBin](https://github.com/luobin23628) ([Email:luobin23628@163.com](mailto:luobin23628@163.com?subject=TKKeyboard),   QQ:362906763)
 
 ## License
 
