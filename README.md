@@ -191,7 +191,7 @@ NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completion
 
 ### Maintainers
 
-- [LuoBin](https://github.com/luobin23628) ([@luobin](mailto:luobin23628@163.com))
+- [LuoBin](https://github.com/luobin23628) ([@luobin](mailto:luobin23628@163.com?subject=TKKeyboard))
 
 ## License
 
