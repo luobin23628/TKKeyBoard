@@ -78,8 +78,6 @@ This will display a black popover with automatic arrow positioning and a maximum
 
 ## Maintainers
 
-========
-
 - [LuoBin](https://github.com/luobin23628) ([@luobin](mailto:luobin23628@163.com?subject=TKKeyboard))
 
 ## License
