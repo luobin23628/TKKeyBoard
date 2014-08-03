@@ -7,7 +7,7 @@ This library provides an alternative to the native iOS keyboard, support customi
 ## Usage
 
 
-### Use support keyBoard Type
+### Use already support keyboard type
 
 1、`TKKeyboardTypeIntegerPad`<br/>
 2、`TKKeyboardTypeUIntegerPad`<br/>
@@ -16,7 +16,7 @@ This library provides an alternative to the native iOS keyboard, support customi
 5、`TKKeyboardTypeFloatPad`<br/>
 6、`TKKeyboardTypeUnsignedFloatPad`
 
-#### Example
+#### Use example
 
 ```objective-c
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(20, 70, 280, 44)];
