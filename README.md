@@ -16,8 +16,10 @@ Features
 
 ## Usage
 
+You should only import `TKKeyboard.h`
 
 ### Use already support keyboard type
+
 
 1、`TKKeyboardTypeIntegerPad`<br/>
 2、`TKKeyboardTypeUIntegerPad`<br/>
