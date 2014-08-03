@@ -13,6 +13,8 @@
 @interface TKKeyboardConfiguration : NSObject
 
 @property (nonatomic, retain) UIColor *backgroundColor;  //Default [UIColor colorWithWhite:251/255.0 alpha:1]
+@property (nonatomic, retain) UIView *backgroundView;  //Default nil
+
 @property (nonatomic, assign) CGFloat keyboardHeight;  //Default 216
 @property (nonatomic, assign) CGFloat landscapeKeyboardHeight;  //Default 216
 @property (nonatomic, assign) NSInteger keyboardType;

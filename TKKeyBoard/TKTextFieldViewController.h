@@ -12,6 +12,6 @@
 
 - (id)initWithKeyboardType:(NSInteger)keyboardType;
 
-@property (nonatomic, readonly) UITextField *textField;
+@property (nonatomic, readonly, retain) UITextField *textField;
 
 @end

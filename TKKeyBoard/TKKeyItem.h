@@ -26,11 +26,11 @@ typedef NS_ENUM(NSInteger, TKKeyItemType) {
 - (id)initWithImage:(UIImage *)image action:(void(^)(id<TKTextInput> textInput, TKKeyItem *keyItem))action;
 - (id)initWithCustomView:(UIView *)customView action:(void(^)(id<TKTextInput> textInput, TKKeyItem *keyItem))action;
 
-@property (nonatomic, readonly) NSString *title;
-@property (nonatomic, readonly) NSAttributedString *attributedTitle;
-@property (nonatomic, readonly) UIImage *image;
-@property (nonatomic, readonly) UIView *customView;
-@property (nonatomic, readonly) void(^action)(id<TKTextInput> textInput, TKKeyItem *keyItem);
+@property (nonatomic, readonly, retain) NSString *title;
+@property (nonatomic, readonly, retain) NSAttributedString *attributedTitle;
+@property (nonatomic, readonly, retain) UIImage *image;
+@property (nonatomic, readonly, retain) UIView *customView;
+@property (nonatomic, readonly, copy) void(^action)(id<TKTextInput> textInput, TKKeyItem *keyItem);
 
 //for title button
 @property (nonatomic, retain) UIFont *titleFont;

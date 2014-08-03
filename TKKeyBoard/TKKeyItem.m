@@ -38,7 +38,7 @@
             self.image = [UIImage imageNamed:@"delete.png"];
             self.enableLongPressRepeat = YES;
         } else if (type == TKKeyItemTypeReturn) {
-            self.title = @"完成";
+            self.title = @"完 成";
             self.enablesAutomatically = YES;
         } else if (type == TKKeyItemTypeBackspace) {
             self.image = nil;

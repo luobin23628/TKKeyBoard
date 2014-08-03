@@ -28,7 +28,11 @@
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         self.clearsSelectionOnViewWillAppear = NO;
-        self.preferredContentSize = CGSizeMake(320.0, 600.0);
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
+        if ([self respondsToSelector:@selector(setPreferredContentSize:)]) {
+            self.preferredContentSize = CGSizeMake(320.0, 600.0);
+        }
+#endif
     }
     [super awakeFromNib];
 }
@@ -42,7 +46,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -57,6 +61,8 @@
         cell.textLabel.text = @"TKKeyboardTypeIntegerPad";
     } else if (indexPath.row == 1) {
         cell.textLabel.text = @"TKKeyboardTypeHexPad";
+    } else if (indexPath.row == 2) {
+        cell.textLabel.text = @"TKKeyboardTypeFloatPad";
     }
     return cell;
 }
@@ -64,15 +70,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSInteger keyboardType = TKKeyboardTypeIntegerPad;
     if (indexPath.row == 0) {
-        TKTextFieldViewController *textFieldViewController = [[TKTextFieldViewController alloc] initWithKeyboardType:TKKeyboardTypeIntegerPad];
-        [self.navigationController pushViewController:textFieldViewController animated:YES];
-        [textFieldViewController release];
+        keyboardType = TKKeyboardTypeIntegerPad;
     } else if (indexPath.row == 1) {
-        TKTextFieldViewController *textFieldViewController = [[TKTextFieldViewController alloc] initWithKeyboardType:TKKeyboardTypeHexPad];
-        [self.navigationController pushViewController:textFieldViewController animated:YES];
-        [textFieldViewController release];
+        keyboardType = TKKeyboardTypeHexPad;
+    } else if (indexPath.row == 2) {
+        keyboardType = TKKeyboardTypeUnsignedFloatPad;
     }
+    TKTextFieldViewController *textFieldViewController = [[TKTextFieldViewController alloc] initWithKeyboardType:keyboardType];
+    [self.navigationController pushViewController:textFieldViewController animated:YES];
+    [textFieldViewController release];
 }
 
 @end

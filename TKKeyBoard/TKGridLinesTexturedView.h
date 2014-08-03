@@ -10,4 +10,7 @@
 
 @interface TKGridLinesTexturedView : UIView
 
+@property (nonatomic, assign) NSUInteger rowCount;
+@property (nonatomic, assign) NSUInteger columnCount;
+
 @end

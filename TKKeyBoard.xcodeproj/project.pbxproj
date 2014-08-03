@@ -22,6 +22,8 @@
 		A8BB14AD198A9D5300CEE1A2 /* TKKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BB14AC198A9D5300CEE1A2 /* TKKeyboardManager.m */; };
 		A8BB14B3198AA45800CEE1A2 /* TKKeyboardConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BB14B2198AA45800CEE1A2 /* TKKeyboardConfiguration.m */; };
 		A8BB14BC198AAE8300CEE1A2 /* TKGridLinesTexturedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BB14BB198AAE8300CEE1A2 /* TKGridLinesTexturedView.m */; };
+		A8ED683A198E0B30000DDD3F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A8ED6838198E0B30000DDD3F /* LICENSE */; };
+		A8ED683B198E0B30000DDD3F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A8ED6839198E0B30000DDD3F /* README.md */; };
 		AB8C318F198B3FC300B771E8 /* TKKeyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8C318E198B3FC300B771E8 /* TKKeyItem.m */; };
 		AB8C3195198B73FA00B771E8 /* TKKeyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8C3194198B73FA00B771E8 /* TKKeyButton.m */; };
 		ABBCEDC0198B9426009A581E /* TKFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBCEDBF198B9426009A581E /* TKFlowLayout.m */; };
@@ -57,6 +59,8 @@
 		A8BB14B2198AA45800CEE1A2 /* TKKeyboardConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKKeyboardConfiguration.m; sourceTree = "<group>"; };
 		A8BB14BA198AAE8300CEE1A2 /* TKGridLinesTexturedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKGridLinesTexturedView.h; sourceTree = "<group>"; };
 		A8BB14BB198AAE8300CEE1A2 /* TKGridLinesTexturedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKGridLinesTexturedView.m; sourceTree = "<group>"; };
+		A8ED6838198E0B30000DDD3F /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		A8ED6839198E0B30000DDD3F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		AB8C318D198B3FC300B771E8 /* TKKeyItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKKeyItem.h; sourceTree = "<group>"; };
 		AB8C318E198B3FC300B771E8 /* TKKeyItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKKeyItem.m; sourceTree = "<group>"; };
 		AB8C3193198B73FA00B771E8 /* TKKeyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKKeyButton.h; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 		A8BB146E198A8D4F00CEE1A2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A8ED6838198E0B30000DDD3F /* LICENSE */,
+				A8ED6839198E0B30000DDD3F /* README.md */,
 				A8BB146F198A8D4F00CEE1A2 /* TKKeyBoard-Info.plist */,
 				A8BB1470198A8D4F00CEE1A2 /* InfoPlist.strings */,
 				A8BB1473198A8D4F00CEE1A2 /* main.m */,
@@ -218,7 +224,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8ED683A198E0B30000DDD3F /* LICENSE in Resources */,
 				A8BB1486198A8D4F00CEE1A2 /* Images.xcassets in Resources */,
+				A8ED683B198E0B30000DDD3F /* README.md in Resources */,
 				A8BB1472198A8D4F00CEE1A2 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -54,6 +54,8 @@ static double fix(double f){
                 [self initUIntegerKeyboard];
                 [self initHexKeyboard];
                 [self initUnsignedHexKeyboard];
+                [self initFloatKeyboard];
+                [self initUnsignedFloatKeyboard];
             }
         }
     }
@@ -139,13 +141,14 @@ static double fix(double f){
     }];
     keyItem.enablesAutomatically = NO;
     keyItem.enableLongPressRepeat = YES;
-    keyItem.backgroundColor = [UIColor colorWithWhite:179/255.0 alpha:1];
+    keyItem.backgroundColor = [UIColor colorWithWhite:225/255.0 alpha:1];
     keyItem.highlightBackgroundColor = [UIColor colorWithWhite:251/255.0 alpha:1];
     [keyItems addObject:keyItem];
     [keyItem release];
     
     configiration.keyItems = keyItems;
     [[TKKeyboardManager shareInstance] registerKeyboardConfiguration:configiration];
+    [configiration release];
 }
 
 + (void)initHexKeyboard {
@@ -171,7 +174,6 @@ static double fix(double f){
                           @"1", @"2", @"3", @"E", @"F"];
     for (int i = 0; i < [keyNames count]; i++) {
         TKKeyItem *keyItem = [[TKKeyItem alloc] initWithInsertText:[keyNames objectAtIndex:i]];
-        keyItem.highlightBackgroundColor = [UIColor colorWithWhite:179/255.0 alpha:1];
         [keyItems addObject:keyItem];
         [keyItem release];
     }
@@ -179,8 +181,6 @@ static double fix(double f){
     TKKeyItem *keyItem;
     if (isUnsigned) {
         TKKeyItem *keyItem = [[TKKeyItem alloc] initWithType:TKKeyItemTypeBackspace action:nil];
-        keyItem.backgroundColor = [UIColor colorWithWhite:179/255.0 alpha:1];
-        keyItem.highlightBackgroundColor = [UIColor colorWithWhite:251/255.0 alpha:1];
         keyItem.enable = NO;
         [keyItems addObject:keyItem];
         [keyItem release];
@@ -195,7 +195,6 @@ static double fix(double f){
     }
     
     keyItem = [[TKKeyItem alloc] initWithInsertText:@"0"];
-    keyItem.highlightBackgroundColor = [UIColor colorWithWhite:179/255.0 alpha:1];
     [keyItems addObject:keyItem];
     [keyItem release];
     
@@ -211,8 +210,8 @@ static double fix(double f){
     keyItem = [[TKKeyItem alloc] initWithType:TKKeyItemTypeReturn action:^(id<TKTextInput> textInput, TKKeyItem *keyItem) {
         [textInput returnKey];
     }];
-    keyItem.titleFont = [UIFont systemFontOfSize:18];
-    keyItem.backgroundColor = [UIColor colorWithWhite:179/255.0 alpha:1];
+    keyItem.titleFont = [UIFont systemFontOfSize:20];
+    keyItem.backgroundColor = [UIColor colorWithWhite:225/255.0 alpha:1];
     keyItem.highlightBackgroundColor = [UIColor colorWithWhite:251/255.0 alpha:1];
     [keyItems addObject:keyItem];
     [keyItem release];
@@ -236,6 +235,70 @@ static double fix(double f){
     [layout release];
     
     [[TKKeyboardManager shareInstance] registerKeyboardConfiguration:configiration];
+    [configiration release];
+}
+
++ (void)initFloatKeyboard {
+    [self doInitFloatKeyboard:NO];
+}
+
++ (void)initUnsignedFloatKeyboard {
+    [self doInitFloatKeyboard:YES];
+}
+
++ (void)doInitFloatKeyboard:(BOOL)isUnsigned {
+    TKKeyboardConfiguration *configiration = [[TKKeyboardConfiguration alloc] init];
+    if (isUnsigned) {
+        configiration.keyboardType = TKKeyboardTypeUnsignedFloatPad;
+    } else {
+        configiration.keyboardType = TKKeyboardTypeFloatPad;
+    }
+    configiration.keyboardHeight = 216;
+    configiration.backgroundColor = [UIColor colorWithWhite:179/255.0 alpha:1];
+    
+    TKGridLayout *layout = [[TKGridLayout alloc] init];
+    layout.rowCount = 4;
+    layout.columnCount = 3;
+    configiration.layout = layout;
+    [layout release];
+    
+    NSMutableArray *keyItems = [NSMutableArray array];
+    for (int i = 0; i < 9; i++) {
+        TKKeyItem *keyItem = [[TKKeyItem alloc] initWithInsertText:[NSString stringWithFormat:@"%d", i]];
+        [keyItems addObject:keyItem];
+        [keyItem release];
+    }
+    
+    TKKeyItem *keyItem;
+    if (isUnsigned) {
+        TKKeyItem *keyItem = [[TKKeyItem alloc] initWithInsertText:@"."];
+        [keyItems addObject:keyItem];
+        [keyItem release];
+    } else {
+        keyItem = [[TKKeyItem alloc] initWithType:TKKeyItemTypePositiveOrNegative action:^(id<TKTextInput> textInput, TKKeyItem *keyItem) {
+            [textInput positiveOrNegative];
+        }];
+        [keyItems addObject:keyItem];
+        [keyItem release];
+    }
+    
+    keyItem = [[TKKeyItem alloc] initWithInsertText:@"0"];
+    [keyItems addObject:keyItem];
+    [keyItem release];
+    
+    keyItem = [[TKKeyItem alloc] initWithType:TKKeyItemTypeDelete action:^(id<TKTextInput> textInput, TKKeyItem *keyItem) {
+        [textInput deleteBackward];
+    }];
+    keyItem.enablesAutomatically = NO;
+    keyItem.enableLongPressRepeat = YES;
+    keyItem.backgroundColor = [UIColor colorWithWhite:225/255.0 alpha:1];
+    keyItem.highlightBackgroundColor = [UIColor colorWithWhite:251/255.0 alpha:1];
+    [keyItems addObject:keyItem];
+    [keyItem release];
+    
+    configiration.keyItems = keyItems;
+    [[TKKeyboardManager shareInstance] registerKeyboardConfiguration:configiration];
+    [configiration release];
 }
 
 @end

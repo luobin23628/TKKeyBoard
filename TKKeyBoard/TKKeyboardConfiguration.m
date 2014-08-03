@@ -19,6 +19,7 @@
 }
 
 - (void)dealloc {
+    self.backgroundView = nil;
     self.backgroundColor = nil;
     self.layout = nil;
     self.keyItems = nil;

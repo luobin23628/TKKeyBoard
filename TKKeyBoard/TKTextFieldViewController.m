@@ -26,9 +26,11 @@
         // Custom initialization
         self.title = @"UITextField Demo";
         self.keyboardType = keyboardType;
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000  
         if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
             self.automaticallyAdjustsScrollViewInsets = NO;
         }
+#endif
     }
     return self;
 }

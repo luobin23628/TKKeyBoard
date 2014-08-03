@@ -24,9 +24,11 @@
     if (self) {
         // Custom initialization
         self.title = @"UITextView Demo";
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
         if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
             self.automaticallyAdjustsScrollViewInsets = NO;
         }
+#endif
     }
     return self;
 }
@@ -71,9 +73,11 @@
     return YES;
 }
 
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
 - (BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange {
     NSLog(@"%s", __FUNCTION__);
     return YES;
 }
+#endif
 
 @end

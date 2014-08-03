@@ -15,6 +15,7 @@ typedef NS_ENUM(NSInteger, TKKeyboardType) {
     TKKeyboardTypeHexPad,
     TKKeyboardTypeUnsignedHexPad,
     TKKeyboardTypeFloatPad,
+    TKKeyboardTypeUnsignedFloatPad,
 };
 
 @protocol TKTextInput<UITextInput>

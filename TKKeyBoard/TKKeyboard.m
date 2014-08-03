@@ -37,16 +37,23 @@
         // Initialization code
         self.configuration = configuration;
         
+        self.container = [[[UIView alloc] initWithFrame:self.bounds] autorelease];
+        self.container.backgroundColor = [UIColor clearColor];
+        self.container.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [self addSubview:self.container];
+        
+        UIView *backgroundView = self.configuration.backgroundView;
+        if (backgroundView) {
+            backgroundView.frame = self.bounds;
+            backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+            [self insertSubview:backgroundView belowSubview:self.container];
+        }
+        
         UIColor *backgroundColor = self.configuration.backgroundColor;
         if (!backgroundColor) {
             backgroundColor = kDefaultBackgroundColor;
         }
         self.backgroundColor = backgroundColor;
-        
-        self.container = [[[UIView alloc] initWithFrame:self.bounds] autorelease];
-        self.container.backgroundColor = [UIColor clearColor];
-        self.container.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [self addSubview:self.container];
         
         NSMutableArray *keyButtons = [NSMutableArray array];
         for (TKKeyItem *item in self.configuration.keyItems) {
