@@ -20,6 +20,21 @@ You should only import `TKKeyboard.h`
 
 ### Use already support keyboard type
 
+#### Example
+
+Let's start with a simple example
+    
+```objective-c
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(20, 70, 280, 44)];
+    textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    textField.font = [UIFont systemFontOfSize:20];
+    textField.keyboardType = TKKeyboardTypeIntegerPad;
+```
+    
+This will display a black popover with automatic arrow positioning and a maximum of 200x300 content size and no delegate messages.
+
+#### already support keyboard type
 
 1、`TKKeyboardTypeIntegerPad`<br/>
 2、`TKKeyboardTypeUIntegerPad`<br/>
@@ -28,15 +43,6 @@ You should only import `TKKeyboard.h`
 5、`TKKeyboardTypeFloatPad`<br/>
 6、`TKKeyboardTypeUnsignedFloatPad`
 
-#### Use example
-
-```objective-c
-    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(20, 70, 280, 44)];
-    textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    textField.font = [UIFont systemFontOfSize:20];
-    textField.keyboardType = TKKeyboardTypeIntegerPad;
-```
 
 ### Customize a keyboard
 
