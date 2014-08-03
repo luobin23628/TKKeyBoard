@@ -7,6 +7,7 @@ This library provides an alternative to the native iOS keyboard, support customi
 Features
 ========
 
+* Compatible with ios 5+
 * Works like system keyboard.
 * Runs on both iPhone and iPad.
 * Customize the look of keyboard.
@@ -16,7 +17,7 @@ Features
 
 ## Usage
 
-You should only import `TKKeyboard.h`
+You only should import `TKKeyboard.h`
 
 ### Use already support keyboard type
 
@@ -27,7 +28,7 @@ Let's start with a simple example
     textField.keyboardType = TKKeyboardTypeIntegerPad;
 ```
     
-This will display a integer keyboard, use as simple as system keyboard.
+This will display a integer keyboard, as simple as use system keyboard.
 
 #### Support keyboard type
 
@@ -75,7 +76,7 @@ This will display a integer keyboard, use as simple as system keyboard.
 
 ## Maintainers
 
-- [LuoBin](https://github.com/luobin23628) ([@luobin](mailto:luobin23628@163.com?subject=TKKeyboard))
+- [LuoBin](https://github.com/luobin23628) ([email](mailto:luobin23628@163.com?subject=TKKeyboard), [qq](362906763))
 
 ## License
 
