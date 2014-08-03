@@ -71,7 +71,6 @@ This will display a integer keyboard, as simple as use system keyboard.
 
 ```objective-c
     TKKeyItem *keyItem = [[TKKeyItem alloc] initWithInsertText:[NSString stringWithFormat:@"%d", i]];
-    [keyItem release];
     configiration.keyItems = @[keyItem];
     [keyItem release];
 ```
