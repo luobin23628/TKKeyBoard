@@ -195,4 +195,4 @@ NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completion
 
 ## License
 
-AFNetworking is available under the MIT license. See the LICENSE file for more info.
+AFNetworking is available under the Apache v2 license. See the LICENSE file for more info.
