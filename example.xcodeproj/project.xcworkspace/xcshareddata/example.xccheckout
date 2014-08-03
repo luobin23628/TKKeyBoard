@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>D1380B54-674D-408F-9FB8-EF0E402D8266</string>
+	<string>E22C6582-A3BE-4447-AA3D-1E387EDEFD33</string>
 	<key>IDESourceControlProjectName</key>
-	<string>TKKeyBoard</string>
+	<string>example</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>8556E7B6-E940-4F8E-BFFB-2788B1F053F7</key>
+		<key>05E76351-2F5F-4578-B207-9F9BCBC51FD3</key>
 		<string>https://github.com/luobin23628/TKKeyBoard.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>TKKeyBoard.xcodeproj/project.xcworkspace</string>
+	<string>example.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>8556E7B6-E940-4F8E-BFFB-2788B1F053F7</key>
+		<key>05E76351-2F5F-4578-B207-9F9BCBC51FD3</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>8556E7B6-E940-4F8E-BFFB-2788B1F053F7</string>
+	<string>05E76351-2F5F-4578-B207-9F9BCBC51FD3</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>8556E7B6-E940-4F8E-BFFB-2788B1F053F7</string>
+			<string>05E76351-2F5F-4578-B207-9F9BCBC51FD3</string>
 			<key>IDESourceControlWCCName</key>
 			<string>TKKeyBoard</string>
 		</dict>

@@ -1,8 +1,8 @@
 //
 //  TKAppDelegate.h
-//  TKKeyBoard
+//  example
 //
-//  Created by luobin on 14-7-31.
+//  Created by luobin on 14-8-3.
 //  Copyright (c) 2014年 luobin. All rights reserved.
 //
 
@@ -10,6 +10,6 @@
 
 @interface TKAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (retain, nonatomic) UIWindow *window;
+@property (strong, nonatomic) UIWindow *window;
 
 @end
