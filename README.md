@@ -73,7 +73,7 @@ Layout object is responsible for the layout of the key buttons. The type support
 #### Creat TKKeyItem object
 
 ```objective-c
-    TKKeyItem *keyItem = [[TKKeyItem alloc] initWithInsertText:[NSString stringWithFormat:@"%d", i]];
+    TKKeyItem *keyItem = [[TKKeyItem alloc] initWithInsertText:@"1"];
     configiration.keyItems = @[keyItem];
     [keyItem release];
 ```
