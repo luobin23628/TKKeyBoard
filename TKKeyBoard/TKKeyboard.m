@@ -111,7 +111,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    [self.layout layoutKeyButtons:self.keyButtons forContainer:self.container];
+    [self.layout layoutKeyButtons:self.keyButtons inRect:self.container.bounds];
 }
 
 #pragma mark - Private

@@ -10,6 +10,6 @@
 
 @protocol TKLayout <NSObject>
 
-- (void)layoutKeyButtons:(NSArray*)keyButtons forContainer:(UIView*)container;
+- (void)layoutKeyButtons:(NSArray*)keyButtons inRect:(CGRect)rect;
 
 @end

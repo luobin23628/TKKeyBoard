@@ -10,13 +10,13 @@
 
 @interface TKFlowLayout ()
 
-@property (nonatomic, readwrite, copy) CGSize(^sizeForIndexBlock)(NSUInteger index, TKFlowLayout *layout, UIView *container);
+@property (nonatomic, readwrite, copy) CGSize(^sizeForIndexBlock)(NSUInteger index, TKFlowLayout *layout, CGRect inRect);
 
 @end
 
 @implementation TKFlowLayout
 
-- (instancetype)initWithSizeForIndexBlock:(CGSize(^)(NSUInteger index, TKFlowLayout *layout, UIView *container))sizeForIndexBlock {
+- (instancetype)initWithSizeForIndexBlock:(CGSize(^)(NSUInteger index, TKFlowLayout *layout, CGRect inRect))sizeForIndexBlock {
     self = [super init];
     if (self) {
         NSAssert(sizeForIndexBlock, @"sizeForIndexBlock must not be nil.");
@@ -39,13 +39,13 @@
     [super dealloc];
 }
 
-- (void)layoutKeyButtons:(NSArray*)keyButtons forContainer:(UIView*)container {
+- (void)layoutKeyButtons:(NSArray*)keyButtons inRect:(CGRect)rect {
     CGFloat x = self.padding, y = self.padding;
     CGFloat maxX = 0, rowHeight = 0;
-    CGFloat maxWidth = container.frame.size.width - self.padding*2;
+    CGFloat maxWidth = rect.size.width - self.padding*2;
     for (int i = 0; i < [keyButtons count]; i++) {
         UIView* subview = [keyButtons objectAtIndex:i];
-        CGSize size = self.sizeForIndexBlock(i, self, container);
+        CGSize size = self.sizeForIndexBlock(i, self, rect);
         if (x > self.padding && x + size.width > maxWidth) {
             x = self.padding;
             y += rowHeight + self.spacing;

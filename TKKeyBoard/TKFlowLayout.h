@@ -10,11 +10,11 @@
 
 @interface TKFlowLayout : NSObject <TKLayout>
 
-- (instancetype)initWithSizeForIndexBlock:(CGSize(^)(NSUInteger index, TKFlowLayout *layout, UIView *container))sizeForIndexBlock;
+- (instancetype)initWithSizeForIndexBlock:(CGSize(^)(NSUInteger index, TKFlowLayout *layout, CGRect inRect))sizeForIndexBlock;
 
 @property (nonatomic, assign) CGFloat padding;
 @property (nonatomic, assign) CGFloat spacing;
 
-@property (nonatomic, readonly) CGSize(^sizeForIndexBlock)(NSUInteger index, TKFlowLayout *layout, UIView *container);
+@property (nonatomic, readonly) CGSize(^sizeForIndexBlock)(NSUInteger index, TKFlowLayout *layout, CGRect inRect);
 
 @end

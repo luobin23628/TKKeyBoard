@@ -218,11 +218,11 @@ static double fix(double f){
     
     configiration.keyItems = keyItems;
     
-    TKFlowLayout *layout = [[TKFlowLayout alloc] initWithSizeForIndexBlock:^CGSize(NSUInteger index, TKFlowLayout *layout, UIView *container) {
+    TKFlowLayout *layout = [[TKFlowLayout alloc] initWithSizeForIndexBlock:^CGSize(NSUInteger index, TKFlowLayout *layout, CGRect inRect) {
         int row = 4, column = 5;
         
-        CGFloat innerWidth = (container.frame.size.width - layout.padding*2  - (column - 1) *layout.spacing);
-        CGFloat innerHeight = (container.frame.size.height - layout.padding*2 - (row - 1) *layout.spacing);
+        CGFloat innerWidth = (inRect.size.width - layout.padding*2  - (column - 1) *layout.spacing);
+        CGFloat innerHeight = (inRect.size.height - layout.padding*2 - (row - 1) *layout.spacing);
         CGFloat width = fix(innerWidth/column);
         CGFloat height = fix(innerHeight/row);
         if (index == keyItems.count - 1) {

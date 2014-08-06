@@ -19,7 +19,6 @@
 		A8ED68CC198E7CDE000DDD3F /* TKTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68C9198E7CDE000DDD3F /* TKTextViewController.m */; };
 		A8ED68E3198E7D62000DDD3F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A8ED68CE198E7D62000DDD3F /* LICENSE */; };
 		A8ED68E4198E7D62000DDD3F /* NSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68D0198E7D62000DDD3F /* NSObject+Swizzle.m */; };
-		A8ED68E5198E7D62000DDD3F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A8ED68D1198E7D62000DDD3F /* README.md */; };
 		A8ED68E6198E7D62000DDD3F /* TKFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68D3198E7D62000DDD3F /* TKFlowLayout.m */; };
 		A8ED68E7198E7D62000DDD3F /* TKGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68D5198E7D62000DDD3F /* TKGridLayout.m */; };
 		A8ED68E8198E7D62000DDD3F /* TKGridLinesTexturedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68D7198E7D62000DDD3F /* TKGridLinesTexturedView.m */; };
@@ -52,7 +51,6 @@
 		A8ED68CE198E7D62000DDD3F /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		A8ED68CF198E7D62000DDD3F /* NSObject+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzle.h"; sourceTree = "<group>"; };
 		A8ED68D0198E7D62000DDD3F /* NSObject+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzle.m"; sourceTree = "<group>"; };
-		A8ED68D1198E7D62000DDD3F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		A8ED68D2198E7D62000DDD3F /* TKFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKFlowLayout.h; sourceTree = "<group>"; };
 		A8ED68D3198E7D62000DDD3F /* TKFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKFlowLayout.m; sourceTree = "<group>"; };
 		A8ED68D4198E7D62000DDD3F /* TKGridLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKGridLayout.h; sourceTree = "<group>"; };
@@ -70,6 +68,7 @@
 		A8ED68E0198E7D62000DDD3F /* TKKeyItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKKeyItem.h; sourceTree = "<group>"; };
 		A8ED68E1198E7D62000DDD3F /* TKKeyItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKKeyItem.m; sourceTree = "<group>"; };
 		A8ED68E2198E7D62000DDD3F /* TKLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLayout.h; sourceTree = "<group>"; };
+		ABFC19691991D0B900F9C9E0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +134,7 @@
 		A8ED6893198E7BC4000DDD3F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ABFC19691991D0B900F9C9E0 /* README.md */,
 				A8ED6894198E7BC4000DDD3F /* example-Info.plist */,
 				A8ED6895198E7BC4000DDD3F /* InfoPlist.strings */,
 				A8ED6898198E7BC4000DDD3F /* main.m */,
@@ -149,7 +149,7 @@
 				A8ED68CE198E7D62000DDD3F /* LICENSE */,
 				A8ED68CF198E7D62000DDD3F /* NSObject+Swizzle.h */,
 				A8ED68D0198E7D62000DDD3F /* NSObject+Swizzle.m */,
-				A8ED68D1198E7D62000DDD3F /* README.md */,
+				A8ED68E2198E7D62000DDD3F /* TKLayout.h */,
 				A8ED68D2198E7D62000DDD3F /* TKFlowLayout.h */,
 				A8ED68D3198E7D62000DDD3F /* TKFlowLayout.m */,
 				A8ED68D4198E7D62000DDD3F /* TKGridLayout.h */,
@@ -166,7 +166,6 @@
 				A8ED68DF198E7D62000DDD3F /* TKKeyButton.m */,
 				A8ED68E0198E7D62000DDD3F /* TKKeyItem.h */,
 				A8ED68E1198E7D62000DDD3F /* TKKeyItem.m */,
-				A8ED68E2198E7D62000DDD3F /* TKLayout.h */,
 			);
 			path = TKKeyBoard;
 			sourceTree = "<group>";
@@ -226,7 +225,6 @@
 			files = (
 				A8ED68E3198E7D62000DDD3F /* LICENSE in Resources */,
 				A8ED68A8198E7BC4000DDD3F /* Images.xcassets in Resources */,
-				A8ED68E5198E7D62000DDD3F /* README.md in Resources */,
 				A8ED6897198E7BC4000DDD3F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
