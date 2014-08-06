@@ -1,0 +1,161 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>TKkeyboard</title>
+  <meta name="description" content="A custom keyboard">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">TKkeyboard</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">A custom keyboard</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/luobin23628/TKKeyBoard/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/luobin23628/TKKeyBoard/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/luobin23628/TKKeyBoard" class="code">View TKkeyboard on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h1>
+<a name="tkkeyboard" class="anchor" href="#tkkeyboard"><span class="octicon octicon-link"></span></a>TKKeyBoard</h1>
+
+<p>This library provides an alternative to the native iOS keyboard, support customize the look and feel of the keyboard.</p>
+
+<h1>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h1>
+
+<ul>
+<li>Compatible with ios 5+</li>
+<li>Works like system keyboard.</li>
+<li>Runs on both iPhone and iPad.</li>
+<li>Customize the look of keyboard.</li>
+<li>Automatic orientation.</li>
+<li>MIT License (you can use it for commercial apps, edit and redistribute).</li>
+</ul><h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>You only should import <code>TKKeyboard.h</code></p>
+
+<h3>
+<a name="use-already-support-keyboard-type" class="anchor" href="#use-already-support-keyboard-type"><span class="octicon octicon-link"></span></a>Use already support keyboard type</h3>
+
+<p>Let's start with a simple example</p>
+
+<div class="highlight highlight-objective-c"><pre>    <span class="bp">UITextField</span> <span class="o">*</span><span class="n">textField</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">UITextField</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithFrame</span><span class="p">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">280</span><span class="p">,</span> <span class="mi">44</span><span class="p">)];</span>
+    <span class="n">textField</span><span class="p">.</span><span class="n">keyboardType</span> <span class="o">=</span> <span class="n">TKKeyboardTypeIntegerPad</span><span class="p">;</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">textField</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">textField</span> <span class="k">release</span><span class="p">];</span>
+</pre></div>
+
+<p>This will display a integer keyboard, as simple as use system keyboard.</p>
+
+<h4>
+<a name="support-keyboard-type" class="anchor" href="#support-keyboard-type"><span class="octicon octicon-link"></span></a>Support keyboard type</h4>
+
+<ul>
+<li><code>TKKeyboardTypeIntegerPad</code></li>
+<li><code>TKKeyboardTypeUIntegerPad</code></li>
+<li><code>TKKeyboardTypeHexPad</code></li>
+<li><code>TKKeyboardTypeUnsignedHexPad</code></li>
+<li><code>TKKeyboardTypeFloatPad</code></li>
+<li><code>TKKeyboardTypeUnsignedFloatPad</code></li>
+</ul><h3>
+<a name="customize-a-keyboard" class="anchor" href="#customize-a-keyboard"><span class="octicon octicon-link"></span></a>Customize a keyboard</h3>
+
+<h4>
+<a name="tkkeyboardmanager" class="anchor" href="#tkkeyboardmanager"><span class="octicon octicon-link"></span></a>TKKeyboardManager</h4>
+
+<p><code>TKKeyboardManager</code> register a keyboard type based on a specified <code>TKKeyboardConfiguration</code> object.</p>
+
+<h4>
+<a name="creat-tkkeyboardconfiguration-object" class="anchor" href="#creat-tkkeyboardconfiguration-object"><span class="octicon octicon-link"></span></a>Creat TKKeyboardConfiguration object</h4>
+
+<div class="highlight highlight-objective-c"><pre>    <span class="n">TKKeyboardConfiguration</span> <span class="o">*</span><span class="n">configiration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">TKKeyboardConfiguration</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">configiration</span><span class="p">.</span><span class="n">keyboardType</span> <span class="o">=</span> <span class="n">TKKeyboardTypeIntegerPad</span><span class="p">;</span>
+    <span class="n">configiration</span><span class="p">.</span><span class="n">keyboardHeight</span> <span class="o">=</span> <span class="mi">216</span><span class="p">;</span>
+    <span class="n">configiration</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIColor</span> <span class="nl">colorWithWhite</span><span class="p">:</span><span class="mi">179</span><span class="o">/</span><span class="mf">255.0</span> <span class="nl">alpha</span><span class="p">:</span><span class="mi">1</span><span class="p">];</span>
+</pre></div>
+
+<h4>
+<a name="creat-layout-object" class="anchor" href="#creat-layout-object"><span class="octicon octicon-link"></span></a>Creat Layout object</h4>
+
+<p>Layout object is responsible for the layout of the key buttons. The type supported is TKGridLayout and TKFlowLayout, You can also customize a Layout object， which conforms to <code>TkLayout</code>.</p>
+
+<div class="highlight highlight-objective-c"><pre>   <span class="n">TKGridLayout</span> <span class="o">*</span><span class="n">layout</span> <span class="o">=</span> <span class="p">[[</span><span class="n">TKGridLayout</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">layout</span><span class="p">.</span><span class="n">rowCount</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="n">layout</span><span class="p">.</span><span class="n">columnCount</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">configiration</span><span class="p">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">layout</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">layout</span> <span class="k">release</span><span class="p">];</span>
+</pre></div>
+
+<h4>
+<a name="creat-tkkeyitem-object" class="anchor" href="#creat-tkkeyitem-object"><span class="octicon octicon-link"></span></a>Creat TKKeyItem object</h4>
+
+<div class="highlight highlight-objective-c"><pre>    <span class="n">TKKeyItem</span> <span class="o">*</span><span class="n">keyItem</span> <span class="o">=</span> <span class="p">[[</span><span class="n">TKKeyItem</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithInsertText</span><span class="p">:[</span><span class="bp">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@"%d"</span><span class="p">,</span> <span class="n">i</span><span class="p">]];</span>
+    <span class="n">configiration</span><span class="p">.</span><span class="n">keyItems</span> <span class="o">=</span> <span class="l">@[</span><span class="n">keyItem</span><span class="l">]</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">keyItem</span> <span class="k">release</span><span class="p">];</span>
+</pre></div>
+
+<h2>
+<a name="maintainers" class="anchor" href="#maintainers"><span class="octicon octicon-link"></span></a>Maintainers</h2>
+
+<ul>
+<li>
+<a href="https://github.com/luobin23628">LuoBin</a> (<a href="mailto:luobin23628@163.com?subject=TKKeyboard">Email:luobin23628@163.com</a>,   QQ:362906763)</li>
+</ul><h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>TKKeyboard is available under MIT license. See the LICENSE file for more info.</p>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/luobin23628" class="avatar"><img src="https://avatars3.githubusercontent.com/u/1227957?v=2&amp;s=60" width="48" height="48"></a> <a href="https://github.com/luobin23628">luobin23628</a> maintains <a href="https://github.com/luobin23628/TKKeyBoard">TKkeyboard</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="http://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/luobin23628/TKKeyBoard/tarball/master" class="tar">tar</a><a href="https://github.com/luobin23628/TKKeyBoard/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("8888888888");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+</body>
+</html>
