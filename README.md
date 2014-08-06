@@ -46,7 +46,7 @@ This will display a integer keyboard, as simple as use system keyboard.
 
 #### TKKeyboardManager
 
-`TKKeyboardManager` register a keyboard type based on a specified `TKKeyboardConfiguration` object`.
+`TKKeyboardManager` register a keyboard type based on a specified `TKKeyboardConfiguration` object.
 
 #### Creat TKKeyboardConfiguration object
 
