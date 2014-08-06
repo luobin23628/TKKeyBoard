@@ -15,6 +15,6 @@
 @property (nonatomic, assign) CGFloat padding;
 @property (nonatomic, assign) CGFloat spacing;
 
-@property (nonatomic, readonly) CGSize(^sizeForIndexBlock)(NSUInteger index, TKFlowLayout *layout, CGRect inRect);
+@property (nonatomic, readonly, copy) CGSize(^sizeForIndexBlock)(NSUInteger index, TKFlowLayout *layout, CGRect inRect);
 
 @end

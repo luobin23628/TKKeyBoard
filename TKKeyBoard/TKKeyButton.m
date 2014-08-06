@@ -7,7 +7,6 @@
 //
 
 #import "TKKeyButton.h"
-#import <objc/runtime.h>
 
 #define kDefaultBackgroundColor [UIColor colorWithWhite:251/255.0 alpha:1]
 #define kDefaultHighlightedBackgroundColor [UIColor colorWithWhite:225/255.0 alpha:1]
