@@ -3,6 +3,8 @@ TKKeyBoard
 
 This library provides an alternative to the native iOS keyboard, support customize the look and feel of the keyboard.
 
+<img width="320" height="568" src="https://raw.githubusercontent.com/luobin23628/TKKeyBoard/gh-pages/images/Screenshot%202014.08.06%2015.28.37.png" alt="alt text" title="Title" /> _ 
+<img style="margin-left:20px" width="320" height="568" src="https://raw.githubusercontent.com/luobin23628/TKKeyBoard/gh-pages/images/Screenshot%202014.08.06%2015.28.44.png" alt="alt text" title="Title" />
 
 Features
 ========
@@ -14,7 +16,6 @@ Features
 * Automatic orientation.
 * MIT License (you can use it for commercial apps, edit and redistribute).
 
-
 ## Usage
 
 You only should import `TKKeyboard.h`
@@ -24,9 +25,9 @@ You only should import `TKKeyboard.h`
 Let's start with a simple example
     
 ```objective-c
-    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(20, 70, 280, 44)];
+    UITextField *textField = [[UITextField alloc] init];
     textField.keyboardType = TKKeyboardTypeIntegerPad;
-    [self.view addSubview:self.textField];
+    [self.view addSubview:textField];
     [textField release];
 ```
     
@@ -72,7 +73,7 @@ Layout object is responsible for the layout of the key buttons. The type support
 #### Creat TKKeyItem object
 
 ```objective-c
-    TKKeyItem *keyItem = [[TKKeyItem alloc] initWithInsertText:[NSString stringWithFormat:@"%d", i]];
+    TKKeyItem *keyItem = [[TKKeyItem alloc] initWithInsertText:@"1"];
     configiration.keyItems = @[keyItem];
     [keyItem release];
 ```
