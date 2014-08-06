@@ -80,7 +80,7 @@ Layout object is responsible for the layout of the key buttons. The type support
 
 ## Maintainers
 
-- [LuoBin](https://github.com/luobin23628) ([Email:luobin23628@163.com](mailto:luobin23628@163.com?subject=TKKeyboard),   QQ:362906763)
+- [LuoBin](https://github.com/luobin23628) ([Email:luobin23628@gmail.com](mailto:luobin23628@gmail.com?subject=TKKeyboard))
 
 ## License
 
