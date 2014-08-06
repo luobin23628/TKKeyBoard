@@ -313,16 +313,23 @@
     return [super forwardingTargetForSelector:aSelector];
 }
 
--(NSMethodSignature*)methodSignatureForSelector:(SEL)aSelector;
-{
+-(NSMethodSignature*)methodSignatureForSelector:(SEL)aSelector {
 	if([super respondsToSelector:aSelector]) return [super methodSignatureForSelector:aSelector];
 	if([self.textInput respondsToSelector:aSelector]) return [(id)self.textInput methodSignatureForSelector:aSelector];
 	return nil;
 }
 
--(BOOL)respondsToSelector:(SEL)aSelector;
-{
+-(BOOL)respondsToSelector:(SEL)aSelector {
 	return [super respondsToSelector:aSelector] || [self.textInput respondsToSelector:aSelector];
+}
+
++ (BOOL)conformsToProtocol:(Protocol *)protocol {
+    if ([self class] == TKKeyboard.class
+        && protocol_isEqual(protocol, @protocol(TKTextInput))
+        && protocol_conformsToProtocol(@protocol(TKTextInput), protocol)) {
+        return YES;
+    }
+    return [super conformsToProtocol:protocol];
 }
 
 #pragma mark - UIInputViewAudioFeedback

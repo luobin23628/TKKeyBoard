@@ -20,10 +20,15 @@ typedef NS_ENUM(NSInteger, TKKeyItemType) {
 @interface TKKeyItem : NSObject
 
 - (id)initWithType:(TKKeyItemType)type action:(void(^)(id<TKTextInput> textInput, TKKeyItem *keyItem))action;
+
 - (id)initWithInsertText:(NSString *)insertText;
+
 - (id)initWithTitle:(NSString *)title action:(void(^)(id<TKTextInput> textInput, TKKeyItem *keyItem))action;
+
 - (id)initWithAttributedString:(NSAttributedString *)attributedTitle action:(void(^)(id<TKTextInput> textInput, TKKeyItem *keyItem))action;
+
 - (id)initWithImage:(UIImage *)image action:(void(^)(id<TKTextInput> textInput, TKKeyItem *keyItem))action;
+
 - (id)initWithCustomView:(UIView *)customView action:(void(^)(id<TKTextInput> textInput, TKKeyItem *keyItem))action;
 
 @property (nonatomic, readonly, retain) NSString *title;
