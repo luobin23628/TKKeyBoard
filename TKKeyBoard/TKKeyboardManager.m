@@ -113,7 +113,7 @@ static double fix(double f){
     
     NSMutableArray *keyItems = [NSMutableArray array];
     for (int i = 0; i < 9; i++) {
-        TKKeyItem *keyItem = [[TKKeyItem alloc] initWithInsertText:[NSString stringWithFormat:@"%d", i]];
+        TKKeyItem *keyItem = [[TKKeyItem alloc] initWithInsertText:[NSString stringWithFormat:@"%d", i + 1]];
         [keyItems addObject:keyItem];
         [keyItem release];
     }
@@ -169,9 +169,9 @@ static double fix(double f){
     configiration.backgroundColor = [UIColor colorWithWhite:179/255.0 alpha:1];
     
     NSMutableArray *keyItems = [NSMutableArray array];
-    NSArray *keyNames = @[@"7", @"8", @"9", @"A", @"B",
+    NSArray *keyNames = @[@"1", @"2", @"3", @"A", @"B",
                           @"4", @"5", @"6", @"C", @"D",
-                          @"1", @"2", @"3", @"E", @"F"];
+                          @"7", @"8", @"9", @"E", @"F"];
     for (int i = 0; i < [keyNames count]; i++) {
         TKKeyItem *keyItem = [[TKKeyItem alloc] initWithInsertText:[keyNames objectAtIndex:i]];
         [keyItems addObject:keyItem];
@@ -264,7 +264,7 @@ static double fix(double f){
     
     NSMutableArray *keyItems = [NSMutableArray array];
     for (int i = 0; i < 9; i++) {
-        TKKeyItem *keyItem = [[TKKeyItem alloc] initWithInsertText:[NSString stringWithFormat:@"%d", i]];
+        TKKeyItem *keyItem = [[TKKeyItem alloc] initWithInsertText:[NSString stringWithFormat:@"%d", i + 1]];
         [keyItems addObject:keyItem];
         [keyItem release];
     }
