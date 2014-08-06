@@ -11,6 +11,7 @@
 
 #define kDefaultBackgroundColor [UIColor colorWithWhite:251/255.0 alpha:1]
 #define kDefaultHighlightedBackgroundColor [UIColor colorWithWhite:225/255.0 alpha:1]
+#define kDefaultTitleColor [UIColor colorWithWhite:40/255.0 alpha:1]
 
 @interface TKKeyButton()
 
@@ -45,8 +46,9 @@
         }
         if (item.titleColor) {
             [button setTitleColor:item.titleColor forState:UIControlStateNormal];
+        } else {
+            [button setTitleColor:kDefaultTitleColor forState:UIControlStateNormal];
         }
-        [button setTitleColor:[UIColor colorWithWhite:0.1 alpha:1] forState:UIControlStateNormal];
         if (item.highlightTitleColor) {
             [button setTitleColor:item.highlightTitleColor forState:UIControlStateHighlighted];
         }

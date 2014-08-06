@@ -76,7 +76,7 @@ static double fix(double f){
 }
 
 - (void)registerKeyboardConfiguration:(TKKeyboardConfiguration *)configuration {
-    NSAssert([self.keyboards objectForKey:@(configuration.keyboardType)], @"Keyboard type:%d has exist.", configuration.keyboardType);
+    NSAssert([self.keyboards objectForKey:@(configuration.keyboardType)] == nil, @"Keyboard type:%d has exist.", configuration.keyboardType);
     [self.keyboards setObject:configuration forKey:@(configuration.keyboardType)];
 }
 
