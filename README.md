@@ -18,7 +18,7 @@ Features
 
 ## Usage
 
-You only should import `TKKeyboard.h`
+You should only import `TKKeyboard.h`
 
 ### Use already support keyboard type
 
