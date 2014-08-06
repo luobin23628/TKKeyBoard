@@ -34,12 +34,12 @@ This will display a integer keyboard, as simple as use system keyboard.
 
 #### Support keyboard type
 
-*`TKKeyboardTypeIntegerPad`<br/>
-*`TKKeyboardTypeUIntegerPad`<br/>
-*`TKKeyboardTypeHexPad`<br/>
-*`TKKeyboardTypeUnsignedHexPad`<br/>
-*`TKKeyboardTypeFloatPad`<br/>
-*`TKKeyboardTypeUnsignedFloatPad`
+* `TKKeyboardTypeIntegerPad`
+* `TKKeyboardTypeUIntegerPad`
+* `TKKeyboardTypeHexPad`
+* `TKKeyboardTypeUnsignedHexPad`
+* `TKKeyboardTypeFloatPad`
+* `TKKeyboardTypeUnsignedFloatPad`
 
 
 ### Customize a keyboard
