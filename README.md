@@ -13,13 +13,12 @@ Features
 * Customize the look of keyboard.
 * Automatic orientation.
 * MIT License (you can use it for commercial apps, edit and redistribute).
-* 
 
 ScreenShot
 ========
 
-<img width="320" height="568" src="https://raw.githubusercontent.com/luobin23628/TKKeyBoard/gh-pages/images/Screenshot%202014.08.06%2015.28.37.png" alt="alt text" title="Title" />
-<img style="padding-left:20px" width="320" height="568" src="https://raw.githubusercontent.com/luobin23628/TKKeyBoard/gh-pages/images/Screenshot%202014.08.06%2015.28.44.png" alt="alt text" title="Title" />
+<img width="320" height="568" src="https://raw.githubusercontent.com/luobin23628/TKKeyBoard/gh-pages/images/Screenshot%202014.08.06%2015.28.37.png" alt="alt text" title="Title" /> _ 
+<img style="margin-left:20px" width="320" height="568" src="https://raw.githubusercontent.com/luobin23628/TKKeyBoard/gh-pages/images/Screenshot%202014.08.06%2015.28.44.png" alt="alt text" title="Title" />
 
 ## Usage
 
