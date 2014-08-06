@@ -19,7 +19,7 @@
 
 @interface TKKeyboard ()
 
-@property (nonatomic, readwrite, assign) id<UITextInput> textInput;
+@property (nonatomic, readwrite, assign) UIResponder<UITextInput> *textInput;
 
 @property (nonatomic, retain) TKKeyboardConfiguration *configuration;
 @property (nonatomic, retain) NSArray *keyButtons;
@@ -105,7 +105,7 @@
     }
 }
 
-- (void)setTextInput:(id<UITextInput>)textInput {
+- (void)setTextInput:(UIResponder<UITextInput> *)textInput {
     _textInput = textInput;
 }
 
