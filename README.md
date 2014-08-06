@@ -34,19 +34,19 @@ This will display a integer keyboard, as simple as use system keyboard.
 
 #### Support keyboard type
 
-1、`TKKeyboardTypeIntegerPad`<br/>
-2、`TKKeyboardTypeUIntegerPad`<br/>
-3、`TKKeyboardTypeHexPad`<br/>
-4、`TKKeyboardTypeUnsignedHexPad`<br/>
-5、`TKKeyboardTypeFloatPad`<br/>
-6、`TKKeyboardTypeUnsignedFloatPad`
+* `TKKeyboardTypeIntegerPad`
+* `TKKeyboardTypeUIntegerPad`
+* `TKKeyboardTypeHexPad`
+* `TKKeyboardTypeUnsignedHexPad`
+* `TKKeyboardTypeFloatPad`
+* `TKKeyboardTypeUnsignedFloatPad`
 
 
 ### Customize a keyboard
 
 #### TKKeyboardManager
 
-`TKKeyboardManager` register a keyboard type based on a specified `TKKeyboardConfiguration` object`.
+`TKKeyboardManager` register a keyboard type based on a specified `TKKeyboardConfiguration` object.
 
 #### Creat TKKeyboardConfiguration object
 
@@ -57,7 +57,9 @@ This will display a integer keyboard, as simple as use system keyboard.
     configiration.backgroundColor = [UIColor colorWithWhite:179/255.0 alpha:1];
 ```
 
-#### Creat TkLayout object
+#### Creat Layout object
+
+Layout object is responsible for the layout of the key buttons. The type supported is TKGridLayout and TKFlowLayout, You can also customize a Layout object， which conforms to `TkLayout`.
 
 ```objective-c
    TKGridLayout *layout = [[TKGridLayout alloc] init];
