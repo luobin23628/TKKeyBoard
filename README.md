@@ -59,6 +59,8 @@ This will display a integer keyboard, as simple as use system keyboard.
 
 #### Creat TkLayout object
 
+TkLayout object is responsible for the layout of the key buttons. The type supported is TKGridLayout and TKFlowLayout, You can also customize a TkLayout object， which conforms to `TkLayout`.
+
 ```objective-c
    TKGridLayout *layout = [[TKGridLayout alloc] init];
     layout.rowCount = 4;
