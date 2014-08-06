@@ -25,9 +25,9 @@ You only should import `TKKeyboard.h`
 Let's start with a simple example
     
 ```objective-c
-    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(20, 70, 280, 44)];
+    UITextField *textField = [[UITextField alloc] init];
     textField.keyboardType = TKKeyboardTypeIntegerPad;
-    [self.view addSubview:self.textField];
+    [self.view addSubview:textField];
     [textField release];
 ```
     
