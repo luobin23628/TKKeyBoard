@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "TKKeyboardConfiguration.h"
+#import "TKKeyboardManager.h"
+#import "TKGridLayout.h"
+#import "TKFlowLayout.h"
 
 typedef NS_ENUM(NSInteger, TKKeyboardType) {
     TKKeyboardTypeIntegerPad = 100,

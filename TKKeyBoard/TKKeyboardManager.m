@@ -11,31 +11,6 @@
 #import "TKGridLayout.h"
 #import "TKFlowLayout.h"
 
-//修正f为最接近的0.5的倍数
-static double fix(double f){
-    double f1 = ceil(f);
-    double f2 = floor(f);
-    double f3 = (f1 + f2)/2;
-    
-    double fabs1 = fabs(f - f1);
-    double fabs2 = fabs(f - f2);
-    double fabs3 = fabs(f - f3);
-    
-    if (fabs1 < fabs2) {
-        if (fabs1 < fabs3) {
-            return f1;
-        } else {
-            return f3;
-        }
-    } else {
-        if (fabs2 < fabs3) {
-            return f2;
-        } else {
-            return f3;
-        }
-    }
-}
-
 @interface TKKeyboardManager ()
 
 @property (nonatomic, retain) NSMutableDictionary *keyboards;
@@ -223,8 +198,8 @@ static double fix(double f){
         
         CGFloat innerWidth = (container.frame.size.width - layout.padding*2  - (column - 1) *layout.spacing);
         CGFloat innerHeight = (container.frame.size.height - layout.padding*2 - (row - 1) *layout.spacing);
-        CGFloat width = fix(innerWidth/column);
-        CGFloat height = fix(innerHeight/row);
+        CGFloat width = innerWidth/column;
+        CGFloat height = innerHeight/row;
         if (index == keyItems.count - 1) {
             return CGSizeMake(width * 2, height);
         } else {

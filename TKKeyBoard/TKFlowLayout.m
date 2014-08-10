@@ -8,6 +8,32 @@
 
 #import "TKFlowLayout.h"
 
+
+//修正f为最接近的0.5的倍数
+static double fix(double f){
+    double f1 = ceil(f);
+    double f2 = floor(f);
+    double f3 = (f1 + f2)/2;
+    
+    double fabs1 = fabs(f - f1);
+    double fabs2 = fabs(f - f2);
+    double fabs3 = fabs(f - f3);
+    
+    if (fabs1 < fabs2) {
+        if (fabs1 < fabs3) {
+            return f1;
+        } else {
+            return f3;
+        }
+    } else {
+        if (fabs2 < fabs3) {
+            return f2;
+        } else {
+            return f3;
+        }
+    }
+}
+
 @interface TKFlowLayout ()
 
 @property (nonatomic, readwrite, copy) CGSize(^sizeForIndexBlock)(NSUInteger index, TKFlowLayout *layout, UIView *container);
@@ -44,8 +70,13 @@
     CGFloat maxX = 0, rowHeight = 0;
     CGFloat maxWidth = container.frame.size.width - self.padding*2;
     for (int i = 0; i < [keyButtons count]; i++) {
+        if (i == 10) {
+            NSLog(@"");
+        }
         UIView* subview = [keyButtons objectAtIndex:i];
         CGSize size = self.sizeForIndexBlock(i, self, container);
+        size.width = fix(size.width);
+        size.height = fix(size.height);
         if (x > self.padding && x + size.width > maxWidth) {
             x = self.padding;
             y += rowHeight + self.spacing;
