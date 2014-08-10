@@ -19,7 +19,7 @@
 
 @interface TKKeyboard ()
 
-@property (nonatomic, readwrite, assign) id<UITextInput> textInput;
+@property (nonatomic, readwrite, assign) UIResponder<UITextInput> *textInput;
 
 @property (nonatomic, retain) TKKeyboardConfiguration *configuration;
 @property (nonatomic, retain) NSArray *keyButtons;
@@ -105,13 +105,13 @@
     }
 }
 
-- (void)setTextInput:(id<UITextInput>)textInput {
+- (void)setTextInput:(UIResponder<UITextInput> *)textInput {
     _textInput = textInput;
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    [self.layout layoutKeyButtons:self.keyButtons forContainer:self.container];
+    [self.layout layoutKeyButtons:self.keyButtons inRect:self.container.bounds];
 }
 
 #pragma mark - Private
@@ -313,16 +313,23 @@
     return [super forwardingTargetForSelector:aSelector];
 }
 
--(NSMethodSignature*)methodSignatureForSelector:(SEL)aSelector;
-{
+-(NSMethodSignature*)methodSignatureForSelector:(SEL)aSelector {
 	if([super respondsToSelector:aSelector]) return [super methodSignatureForSelector:aSelector];
 	if([self.textInput respondsToSelector:aSelector]) return [(id)self.textInput methodSignatureForSelector:aSelector];
 	return nil;
 }
 
--(BOOL)respondsToSelector:(SEL)aSelector;
-{
+-(BOOL)respondsToSelector:(SEL)aSelector {
 	return [super respondsToSelector:aSelector] || [self.textInput respondsToSelector:aSelector];
+}
+
++ (BOOL)conformsToProtocol:(Protocol *)protocol {
+    if ([self class] == TKKeyboard.class
+        && protocol_isEqual(protocol, @protocol(TKTextInput))
+        && protocol_conformsToProtocol(@protocol(TKTextInput), protocol)) {
+        return YES;
+    }
+    return [super conformsToProtocol:protocol];
 }
 
 #pragma mark - UIInputViewAudioFeedback

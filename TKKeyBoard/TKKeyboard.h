@@ -35,6 +35,4 @@ typedef NS_ENUM(NSInteger, TKKeyboardType) {
 
 - (id)initWithConfiguration:(TKKeyboardConfiguration *)configuration;
 
-@property (nonatomic, readonly) id<UITextInput> textInput;
-
 @end

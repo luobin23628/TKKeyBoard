@@ -19,11 +19,11 @@
     return self;
 }
 
-- (void)layoutKeyButtons:(NSArray*)keyButtons forContainer:(UIView*)container {
+- (void)layoutKeyButtons:(NSArray*)keyButtons inRect:(CGRect)rect {
     NSAssert(self.padding >= 0, @"self.padding >= 0");
     NSAssert(self.spacing >= 0, @"self.padding >= 0");
-    CGFloat innerWidth = (container.frame.size.width - self.padding*2  - (self.columnCount - 1) *self.spacing);
-    CGFloat innerHeight = (container.frame.size.height - self.padding*2 - (self.rowCount - 1) *self.spacing);
+    CGFloat innerWidth = (rect.size.width - self.padding*2  - (self.columnCount - 1) *self.spacing);
+    CGFloat innerHeight = (rect.size.height - self.padding*2 - (self.rowCount - 1) *self.spacing);
     CGFloat width = ceil(innerWidth / self.columnCount);
     CGFloat height = ceil(innerHeight / self.rowCount);
     

@@ -51,7 +51,7 @@
 }
 
 - (void)registerKeyboardConfiguration:(TKKeyboardConfiguration *)configuration {
-//    NSAssert([keyboardClass isSubclassOfClass:TKKeyboard.class], @"keyboardClass:%@ must be subclass of class TKKeyboard", keyboardClass);
+    NSAssert([self.keyboards objectForKey:@(configuration.keyboardType)] == nil, @"Keyboard type:%d has exist.", configuration.keyboardType);
     [self.keyboards setObject:configuration forKey:@(configuration.keyboardType)];
 }
 
@@ -88,7 +88,7 @@
     
     NSMutableArray *keyItems = [NSMutableArray array];
     for (int i = 0; i < 9; i++) {
-        TKKeyItem *keyItem = [[TKKeyItem alloc] initWithInsertText:[NSString stringWithFormat:@"%d", i]];
+        TKKeyItem *keyItem = [[TKKeyItem alloc] initWithInsertText:[NSString stringWithFormat:@"%d", i + 1]];
         [keyItems addObject:keyItem];
         [keyItem release];
     }
@@ -144,9 +144,9 @@
     configiration.backgroundColor = [UIColor colorWithWhite:179/255.0 alpha:1];
     
     NSMutableArray *keyItems = [NSMutableArray array];
-    NSArray *keyNames = @[@"7", @"8", @"9", @"A", @"B",
+    NSArray *keyNames = @[@"1", @"2", @"3", @"A", @"B",
                           @"4", @"5", @"6", @"C", @"D",
-                          @"1", @"2", @"3", @"E", @"F"];
+                          @"7", @"8", @"9", @"E", @"F"];
     for (int i = 0; i < [keyNames count]; i++) {
         TKKeyItem *keyItem = [[TKKeyItem alloc] initWithInsertText:[keyNames objectAtIndex:i]];
         [keyItems addObject:keyItem];
@@ -193,11 +193,10 @@
     
     configiration.keyItems = keyItems;
     
-    TKFlowLayout *layout = [[TKFlowLayout alloc] initWithSizeForIndexBlock:^CGSize(NSUInteger index, TKFlowLayout *layout, UIView *container) {
+    TKFlowLayout *layout = [[TKFlowLayout alloc] initWithSizeForIndexBlock:^CGSize(NSUInteger index, TKFlowLayout *layout, CGRect inRect) {
         int row = 4, column = 5;
-        
-        CGFloat innerWidth = (container.frame.size.width - layout.padding*2  - (column - 1) *layout.spacing);
-        CGFloat innerHeight = (container.frame.size.height - layout.padding*2 - (row - 1) *layout.spacing);
+        CGFloat innerWidth = (inRect.size.width - layout.padding*2  - (column - 1) *layout.spacing);
+        CGFloat innerHeight = (inRect.size.height - layout.padding*2 - (row - 1) *layout.spacing);
         CGFloat width = innerWidth/column;
         CGFloat height = innerHeight/row;
         if (index == keyItems.count - 1) {
@@ -239,7 +238,7 @@
     
     NSMutableArray *keyItems = [NSMutableArray array];
     for (int i = 0; i < 9; i++) {
-        TKKeyItem *keyItem = [[TKKeyItem alloc] initWithInsertText:[NSString stringWithFormat:@"%d", i]];
+        TKKeyItem *keyItem = [[TKKeyItem alloc] initWithInsertText:[NSString stringWithFormat:@"%d", i + 1]];
         [keyItems addObject:keyItem];
         [keyItem release];
     }
