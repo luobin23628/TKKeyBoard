@@ -11,6 +11,8 @@
 #import "TKKeyboardManager.h"
 #import "TKKeyButton.h"
 #import "TKGridLayout.h"
+#include <mach-o/dyld.h>
+#include <sys/param.h>
 
 #define kDefaultKeyboardHeigh 216.f
 #define kDefaultLandscapeKeyboardHeight 140.f
