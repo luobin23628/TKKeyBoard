@@ -418,6 +418,7 @@ static char keyboardKey;
 @implementation UITextView(TKKeyboard)
 
 + (void)load {
+    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [UITextView swizzleMethod:@selector(inputView) withMethod:@selector(replacedInputView)];
